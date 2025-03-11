@@ -1,0 +1,2 @@
+class VinylesController < ApplicationController
+end
