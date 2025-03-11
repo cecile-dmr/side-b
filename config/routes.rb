@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "vinyles#index"
+
   get "/profile/:id", to: "profiles#show"
 
   resources :users, only: [:show]
+
+  resources :vinyles
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

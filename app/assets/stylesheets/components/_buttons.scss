@@ -1,0 +1,67 @@
+.btn-yes {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  background-color: #BCE6F4;
+  border: none;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.btn-no {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  background-color: #f1aead ;
+  border: none;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.btn-add {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  background-color: #BCE6F4 ;
+  border: none;
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+}
+
+.btn-lavandia {
+  background-color: #859cd2;
+  width: 40%;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight:lighter;
+  padding: 15px;
+  text-decoration: none;
+  box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
+}
+
+.btn-lightred {
+  background-color: #f1aead;
+  width: 40%;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight:lighter;
+  padding: 15px;
+  text-decoration: none;
+  box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
+}
+
+.btn-transaction {
+  background-color: #f1aead;
+  color: rgba(0, 0, 0, 0.80);
+  width: 30%;
+  border: none;
+  border-radius: 30px;
+  font-weight:lighter;
+  font-size: small;
+  padding: 15px;
+  text-decoration: none;
+  box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
+}
