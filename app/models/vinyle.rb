@@ -1,5 +1,5 @@
 class Vinyle < ApplicationRecord
   belongs_to :user
-  has_one_attached :image
-  validates :titre, :artiste, :annee, :description, :address, presence: true
+
+  validates :title, :artist, :description, :available, :quality, :year, :presence => true
 end
