@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: "pages#swipe"
+
   get "/profile/:id", to: "profiles#show"
 
   get "/matchs", to: "matches#matchs"
