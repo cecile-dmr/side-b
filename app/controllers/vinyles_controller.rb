@@ -6,8 +6,7 @@ class VinylesController < ApplicationController
   end
 
   def show
-    @match = match.new
-    @matches = @vinyle.matches.where(user: current_user)
+    @vinyle = Vinyle.find(params[:id])
   end
 
   def create
@@ -16,7 +15,7 @@ class VinylesController < ApplicationController
     if @vinyle.save
       redirect_to @vinyle, notice: "Vinyle ajouté avec succès."
     else
-      flash.now[:alert] = "Erreur lors de l'ajour du vinyle. Veuillez vérifier les informations."
+      flash.now[:alert] = "Erreur lors de l'ajout du vinyle. Veuillez vérifier les informations."
       render :new, status: :unprocessable_entity
     end
   end
