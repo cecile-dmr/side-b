@@ -6,10 +6,13 @@ class VinylesController < ApplicationController
   end
 
   def show
+    @match = match.new
+    @matches = @vinyle.matches.where(user: current_user)
   end
 
   def create
     @vinyle = Vinyle.new(vinyle_params)
+    @vinyle.user = current_user
     if @vinyle.save
       redirect_to @vinyle, notice: "Vinyle ajouté avec succès."
     else
