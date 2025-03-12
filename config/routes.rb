@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "vinyles#index"
-
+  root to: "pages#swipe"
   get "/profile/:id", to: "profiles#show"
 
   resources :users, only: [:show]

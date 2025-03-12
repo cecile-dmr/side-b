@@ -1,4 +1,7 @@
+require "discogs"
+
 class PagesController < ApplicationController
-  def home
+  def swipe
+    @vinyles = Vinyle.all.shuffle
   end
 end
