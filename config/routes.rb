@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   get "/profile/:id", to: "profiles#show"
 
+  get "/matchs", to: "matches#matchs"
+
   resources :users, only: [:show]
 
-  resources :vinyles do
+  resources :vinyles, except: [:index] do
     resources :matches, only: [:create]
   end
   resources :matches, only: :show do
