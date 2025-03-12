@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :vinyles
+  resources :vinyles do
+    resources :matches, only: [:create]
+  end
+  resources :matches, only: :show do
+    resources :messages, only: :create
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
