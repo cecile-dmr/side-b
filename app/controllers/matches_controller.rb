@@ -12,7 +12,7 @@ class MatchesController < ApplicationController
   end
 
   def matchs
-    @matches = 
+    # @matches =
     # @matches = current_user.likes.where(user: current_user)
   end
 

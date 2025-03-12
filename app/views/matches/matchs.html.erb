@@ -1,4 +1,18 @@
+<div class="container chat">
+  <h1>Your match for <%= Match.find(@match.vinyle1_id).title %></h1>
 
+  <div id="messages" class="messages">
+    <% @match.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.nickname %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <% if @matches.exists? %>
   <h2>Your matches</h2>
