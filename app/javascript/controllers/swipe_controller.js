@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+import Swiper from 'swiper'
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
@@ -29,4 +29,3 @@ export default class extends Controller {
 
   }
 }
-
