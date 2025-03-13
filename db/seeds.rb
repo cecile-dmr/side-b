@@ -9,14 +9,21 @@
 #   end
 
 require "discogs"
-wrapper = Discogs::Wrapper.new("Side-b", user_token: ENV["DISCOGS"])
 
-quality = ["Parfait", "Très bon", "Bon"]
-
+UserLike.destroy_all
+puts "Cleaning user likes..."
+Match.destroy_all
+puts "Cleaning matches..."
 Vinyle.destroy_all
 puts "Cleaning vinyles..."
 User.destroy_all
 puts "Cleaning users..."
+
+wrapper = Discogs::Wrapper.new("Side-b", user_token: ENV["DISCOGS"])
+
+quality = ["Parfait", "Très bon", "Bon"]
+
+
 
 theo = User.create!(email: "theo@mail.com", password: "hellohello")
 p theo
@@ -29,8 +36,8 @@ p aldjia
 users = [theo, cecile, baptiste, aldjia]
 
 puts ENV["DISCOGS"]
-20.times do
-  puts "Création d un vinyle"
+users.each do |user|
+  puts "Création d'un vinyle"
   release = wrapper.get_release("#{rand(250000..300000)}")
   vinyle = Vinyle.new(
     title: release.title,
@@ -39,12 +46,34 @@ puts ENV["DISCOGS"]
     available: true,
     quality: quality.sample,
     year: release&.year || "2004",
-    user: users.sample
+    user: user
   )
-  puts vinyle.inspect
-  if vinyle.save!
+  puts vinyle.valid?
+  if vinyle.valid?
+    vinyle.save!
     puts "Created #{vinyle.title}"
   else
     puts "vinyle incomplet"
   end
 end
+
+#------------------------------------------------------------------
+
+
+puts "Création des likes..."
+
+# users = User.all
+# vinyles = Vinyle.all
+
+# User.all.each do |user|
+#   vinyles = Vinyle.where.not(user: user)
+#   UserLike.create!(user: user, vinyle: vinyles.sample)
+# end
+
+
+UserLike.create!(user: User.first, vinyle: User.last.vinyles.sample)
+UserLike.create!(user: User.last, vinyle: User.first.vinyles.sample)
+
+
+puts UserLike.count
+puts Match.count
