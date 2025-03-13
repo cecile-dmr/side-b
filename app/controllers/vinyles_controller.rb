@@ -1,6 +1,10 @@
 class VinylesController < ApplicationController
   before_action :set_vinyle, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @vinyles = Vinyle.all
+  end
+
   def new
     @vinyle = Vinyle.new
   end
