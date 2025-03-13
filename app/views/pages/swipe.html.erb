@@ -1,9 +1,9 @@
 <%# <%= console %>
 
-<div class="container">
+<div class="container" data-controller="swipe">
   <div class="swipe">
     <% @vinyles.each do |vinyle| %>
-      <div class="card-swipe">
+      <div class="card-swipe ">
         <div class="card-swipe-img-back">
           <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" class="d-block w-100 card-swipe-img-back" alt="">
           <div class="card-swipe-content">
@@ -26,28 +26,7 @@
 </div>
 
 <%= console %>
-<%#
-<div class="swiper-container" data-controller="swiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <h3>Slide 1</h3>
-      <p>This is the first slide.</p>
-    </div>
-    <div class="swiper-slide">
-      <h3>Slide 2</h3>
-      <p>This is the second slide.</p>
-    </div>
-    <div class="swiper-slide">
-      <h3>Slide 3</h3>
-      <p>This is the third slide.</p>
-    </div>
-  </div>
- <!-- Pagination -->
-  <div class="swiper-pagination"></div>
- <!-- Navigation -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div> %>
+
 
 <div class="swiper">
   <!-- Additional required wrapper -->

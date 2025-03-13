@@ -2,7 +2,7 @@ require "discogs"
 
 class PagesController < ApplicationController
   def swipe
-    @vinyles = Vinyle.all.shuffle
+    @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
   end
 
   def like
