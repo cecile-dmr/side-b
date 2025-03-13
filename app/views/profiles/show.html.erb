@@ -8,16 +8,18 @@
 
   <div class="vinyles-cards">
     <% @vinyles.each do |vinyle| %>
-      <div link_to edit_vinyle_path(vinyle), class="vinyles-card d-flex justify-content-around mb-5">
-        <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
-        <div>
-          <h2><%= vinyle.title %></h2>
-          <p><%= vinyle.description %></p>
-        </div>
-        <div class="container m-0 text-center pastille">
-        <p>1</p>
-        </div>
-      </div>
+    <%= link_to vinyle_path(vinyle) do %>
+          <div class="vinyles-card d-flex justify-content-around mb-5">
+            <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
+            <div>
+              <h2><%= vinyle.title %></h2>
+              <p><%= vinyle.description %></p>
+            </div>
+            <div class="container m-0 text-center pastille">
+            <p>1</p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
   </div>
 </div>
