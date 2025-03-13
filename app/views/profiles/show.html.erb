@@ -1,4 +1,4 @@
-<div class=container>
+<div class="container">
 
   <div class="profile row justify-content-center baseline">
     <%= image_tag "profile_user", class:"avatar-large", alt:"User profile" %>
@@ -8,8 +8,8 @@
 
   <div class="vinyles-cards">
     <% 3.times do %>
-      <div class="vinyles-card d-flex justify-content-around">
-        <%= image_tag "profile_user", class:"avatar", alt:"User profile" %>
+      <div class="vinyles-card d-flex justify-content-around mb-5">
+        <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
         <div>
           <h2>Vinyle 1</h2>
           <p>Description du vinyle</p>
@@ -21,3 +21,10 @@
     <% end %>
   </div>
 </div>
+
+
+<div class="container d-flex justify-content-center">
+  <a href="link_to" class="btn-add">+</a>
+</div>
+
+<%= render "shared/navbar" %>
