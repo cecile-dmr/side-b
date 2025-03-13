@@ -1,0 +1,8 @@
+<%# NAVBAR A INTEGRER DANS CHAQUE VIEW %>
+  <nav class="navbar">
+  <%= link_to image_tag("user.png"), profile_path(current_user.id) %>
+  <%= link_to image_tag("vinyl1.png"), root_path %>
+
+  <%= link_to image_tag("conversation.png"), matches_path %>
+
+  </nav>

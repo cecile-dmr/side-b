@@ -9,3 +9,15 @@
 
   <%= link_to "Supprimer", @vinyle, method: :delete, data: { confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-danger" %>
 </div>
+
+
+<h2>Match this <%= @vinyle.title %></h2>
+<%= simple_form_for [@vinyle, @match] do |f| %>
+  <%#= f.input :date %>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+<%= render "shared/navbar" %>
