@@ -42,7 +42,7 @@ puts ENV["DISCOGS"]
     user: users.sample
   )
   puts vinyle.inspect
-  if vinyle.save
+  if vinyle.save!
     puts "Created #{vinyle.title}"
   else
     puts "vinyle incomplet"

@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :vinyles, dependent: :destroy
-
+  has_many :user_likes
+  has_many :matches, through: :vinyles
 end

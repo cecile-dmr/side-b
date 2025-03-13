@@ -1,23 +1,23 @@
 <div class=container>
 
-  <div class="profile">
-  <%= image_tag "profile_user", class:"avatar-large", alt:"User profile" %>
-   <h1>User Name</h1>
+  <div class="profile row justify-content-center baseline">
+    <%= image_tag "profile_user", class:"avatar-large", alt:"User profile" %>
+    <h1 class="text-center mt-2">User Name</h1>
   </div>
-  <hr>
+  <hr class="mb-5">
 
   <div class="vinyles-cards">
     <% 3.times do %>
-      <div class="vinyles-card">
+      <div class="vinyles-card d-flex justify-content-around">
         <%= image_tag "profile_user", class:"avatar", alt:"User profile" %>
         <div>
           <h2>Vinyle 1</h2>
           <p>Description du vinyle</p>
         </div>
+        <div class="container m-0 text-center pastille">
+        <p>1</p>
+        </div>
       </div>
     <% end %>
   </div>
-
-  <h1>BOUTON</h1>
-  <h1>FOOTER</h1>
 </div>

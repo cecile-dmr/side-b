@@ -10,3 +10,42 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    border: 1.2px solid #859cd2;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    height: 80px;
+    border-radius: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    z-index: 1000;
+    margin-bottom: 12px;
+    width: 95%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    img {
+      width: 40px; /* Taille des icônes */
+      height: 40px;
+    }
+}
+
+.navbar a:first-child {
+  margin-right: -30px;
+}
+
+.navbar a:last-child {
+  margin-left: -30px; /* Rapproche l'icône de droite du centre */
+}
