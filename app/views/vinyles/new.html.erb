@@ -1,18 +1,6 @@
 <h1>Ajoute ton Vinyle</h1>
 
+<%= render "shared/form", vinyle: @vinyle%>
 
-<%= simple_form_for @vinyle, local: true do |f| %>
-  <%= f.input :title, label: "Titre du vinyle" %>
-  <%= f.input :artist, label: "Artiste" %>
-  <%= f.input :year, label: "Année" %>
-  <%= f.input :description, label: "Description" %>
-  <%= f.collection_radio_buttons :quality, [['Neuf', 'Neuf'] ,['Occasion', 'Occasion']], :first, :last %>
-  <%= f.submit value: "Valider" %>
-
-
-
-
-
-<% end %>
 
 <%= render "shared/navbar" %>

@@ -1,0 +1,42 @@
+.card-swipe {
+  width: 100%;
+  height: 70vh;
+  border-radius: 70px;
+  position: relative;
+  box-shadow: #000000 3px 3px 15px;
+}
+.card-swipe-img-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 70px;
+}
+.card-swipe-content {
+  z-index: 10000;
+  position: absolute;
+  bottom: 40px;
+  left: 35px;
+}
+.buttons-swipe {
+  flex: 0 0 100px;
+  text-align: center;
+  padding-top: 20px;
+}
+.button-swipe {
+  border-radius: 50%;
+  line-height: 90px;
+  width: 90px;
+  border: 0;
+  background: #FFFFFF;
+  display: inline-block;
+  margin: 0 8px;
+}
+.buttons-swipe .fa-solid {
+  font-size: 50px;
+  vertical-align: middle;
+}
+.dislike {
+  color: $light-blue
+}
+.like {
+  color: $rose
+}

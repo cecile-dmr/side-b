@@ -6,12 +6,19 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import 'swiper/swiper-bundle.min.css';
+
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
+// Swiper
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
 body {
   padding: 60px 0
 }
-
