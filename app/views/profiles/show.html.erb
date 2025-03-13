@@ -1,4 +1,4 @@
-<div class=container>
+<div class="container">
 
   <div class="profile row justify-content-center baseline">
     <%= image_tag "profile_user", class:"avatar-large", alt:"User profile" %>
@@ -6,18 +6,29 @@
   </div>
   <hr class="mb-5">
 
+
   <div class="vinyles-cards">
-    <% 3.times do %>
-      <div class="vinyles-card d-flex justify-content-around">
-        <%= image_tag "profile_user", class:"avatar", alt:"User profile" %>
-        <div>
-          <h2>Vinyle 1</h2>
-          <p>Description du vinyle</p>
-        </div>
-        <div class="container m-0 text-center pastille">
-        <p>1</p>
-        </div>
-      </div>
-    <% end %>
+    <% @vinyles.each do |vinyle| %>
+    <%= link_to vinyle_path(vinyle) do %>
+          <div class="vinyles-card d-flex justify-content-around mb-5">
+            <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
+            <div>
+              <h2><%= vinyle.title %></h2>
+              <p><%= vinyle.description %></p>
+            </div>
+            <div class="container m-0 text-center pastille">
+            <p>1</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
   </div>
 </div>
+
+
+
+<div class="container d-flex justify-content-center">
+  <%= link_to "+", new_vinyle_path, class: "btn-add" %>
+</div>
+
+<%= render "shared/navbar" %>

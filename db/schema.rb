@@ -33,6 +33,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_13_154027) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "user_dislikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "vinyle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_dislikes_on_user_id"
+    t.index ["vinyle_id"], name: "index_user_dislikes_on_vinyle_id"
+  end
+
   create_table "user_likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "vinyle_id", null: false
@@ -75,6 +84,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_13_154027) do
   add_foreign_key "matches", "vinyles", column: "vinyle2_id"
   add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
+  add_foreign_key "user_dislikes", "users"
+  add_foreign_key "user_dislikes", "vinyles"
   add_foreign_key "user_likes", "users"
   add_foreign_key "user_likes", "vinyles"
   add_foreign_key "vinyles", "users"

@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :vinyles, dependent: :destroy
   has_many :user_likes
+  has_many :user_dislikes
   has_many :matches, through: :vinyles
 end

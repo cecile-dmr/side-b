@@ -1,6 +1,7 @@
 class VinylesController < ApplicationController
   before_action :set_vinyle, only: [:show, :edit, :update, :destroy]
 
+
   def new
     @vinyle = Vinyle.new
   end
@@ -34,8 +35,9 @@ class VinylesController < ApplicationController
   end
 
   def destroy
+    @vinyle = Vinyle.find(params[:id])
     @vinyle.destroy
-    redirect_to vinyle_path, notice: "Vinyle supprimé avec succès."
+    redirect_to profile_path(current_user), notice: "Vinyle supprimé avec succès."
   end
 
   private

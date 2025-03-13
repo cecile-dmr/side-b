@@ -15,6 +15,13 @@ module SideB
       generate.test_framework :test_unit, fixture: false
     end
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
