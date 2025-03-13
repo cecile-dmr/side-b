@@ -1,0 +1,35 @@
+.match-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  padding: 20px;
+  background: #fff2f3;
+  color: rgb(6, 5, 5);
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+  height: 300px;
+}
+
+.match-card h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #340f18;
+}
+
+.match-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+  border: 3px solid white;
+}
+
+.match-card p {
+  font-size: 16px;
+  margin: 10px 0;
+}

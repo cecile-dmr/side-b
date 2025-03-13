@@ -6,21 +6,21 @@
   </div>
   <hr class="mb-5">
 
-  <div class="vinyles-cards">
-    <% @vinyles.each do |vinyle| %>
-      <div link_to edit_vinyle_path(vinyle), class="vinyles-card d-flex justify-content-around mb-5">
-        <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
-        <div>
-          <h2><%= vinyle.title %></h2>
-          <p><%= vinyle.description %></p>
-        </div>
-        <div class="container m-0 text-center pastille">
-        <p>1</p>
-        </div>
+<div class="vinyles-cards">
+  <% @vinyles.each do |vinyle| %>
+    <%= link_to edit_vinyle_path(vinyle), class: "vinyles-card d-flex justify-content-around mb-5" do %>
+      <%= image_tag "vinyl-record", class: "avatar", alt: "image-vinyles" %>
+      <div>
+        <h2><%= vinyle.title %></h2>
+        <p><%= vinyle.description %></p>
       </div>
-      <% end %>
-  </div>
+      <div class="container m-0 text-center pastille">
+        <p>1</p>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
 
 
 <div class="container d-flex justify-content-center">
