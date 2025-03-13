@@ -1,36 +1,9 @@
-<div class="container chat">
-  <h1>Your match for <%= Match.find(@match.vinyle1_id).title %></h1>
 
-  <div id="messages" class="messages">
-    <% @match.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<% if @matches.exists? %>
+<% if @matches.any? %>
   <h2>Your matches</h2>
   <ul>
     <% @matches.each do |match| %>
-      <li><%= link_to match.date.strftime("%a %b %e"), match %></li>
+      <li><%= link_to match.vinyle1.title, match %></li>
     <% end %>
   </ul>
-<% end %>
-
-<%= simple_form_for [@match, @message],
-  html: {class: "d-flex"} do |f|
-%>
-  <% other_user = current_user == @match.vinyle.user ? @match.user : @match.restaurant.user %>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message #{other_user.nickname}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
