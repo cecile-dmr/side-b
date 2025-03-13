@@ -11,7 +11,8 @@ class MatchesController < ApplicationController
     end
   end
 
-  def matchs
+  def matches
+    @matches = Match.all
     # @matches =
     # @matches = current_user.likes.where(user: current_user)
   end

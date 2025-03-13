@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   root to: "pages#swipe"
 
-  get "/profile/:id", to: "profiles#show"
+  get "/profile/:id", to: "profiles#show", as: "profile"
 
-  get "/matchs", to: "matches#matchs"
+  get "/matches", to: "matches#matches"
 
   resources :users, only: [:show]
 
