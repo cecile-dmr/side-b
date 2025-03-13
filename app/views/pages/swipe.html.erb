@@ -1,7 +1,70 @@
+<%# <%= console %>
 
-<!--
-<% @vinyles.each do |vinyle| %>
-  <p><%= vinyle.title %>, <%= vinyle.artist %></p>
-  <br>
-<% end %>
--->
+<div class="container">
+  <div class="swipe">
+    <% @vinyles.each do |vinyle| %>
+      <div class="card-swipe">
+        <div class="card-swipe-img-back">
+          <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" class="d-block w-100 card-swipe-img-back" alt="">
+          <div class="card-swipe-content">
+            <h3><%= vinyle.title %></h3>
+            <p><%= vinyle.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="buttons-swipe">
+      <button class="button-swipe dislike" data-action="click->swipe#dislike">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button class="button-swipe like" data-action="click->swipe#like">
+        <i class="fa-solid fa-heart"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<%= console %>
+<%#
+<div class="swiper-container" data-controller="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <h3>Slide 1</h3>
+      <p>This is the first slide.</p>
+    </div>
+    <div class="swiper-slide">
+      <h3>Slide 2</h3>
+      <p>This is the second slide.</p>
+    </div>
+    <div class="swiper-slide">
+      <h3>Slide 3</h3>
+      <p>This is the third slide.</p>
+    </div>
+  </div>
+ <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+ <!-- Navigation -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div> %>
+
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
