@@ -1,8 +1,11 @@
 <div class="container d-flex flex-column gap-5">
 
-  <%= link_to "Retour à la liste", profile_path, class: "btn btn-secondary arrow-back" %>
+  <%= link_to image_tag("back", width: "40px", height: "40px"), profile_path %>
 
   <div class="vinyle-card">
+    <div class="vinyle-image-container">
+      <%= image_tag "vinyl-record", class: "vinyle-image" %>
+    </div>
     <h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1>
       <div>
         <p><strong>Année :</strong> <%= @vinyle.year %></p>
@@ -10,7 +13,7 @@
         <p><strong>Etat du vinyle :</strong> <%= @vinyle.quality %></p>
       </div>
   </div>
-  <div class="d-flex justify-content-center gap-4 mt-4">
+  <div class="button-container d-flex justify-content-center gap-4 mt-4">
     <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
     <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
   </div>
