@@ -12,13 +12,13 @@ class MatchesController < ApplicationController
   end
 
   def matches
-    @matches = Match.all
-    # @matches =
-    # @matches = current_user.likes.where(user: current_user)
+    @vinyles = Vinyle.where(user: current_user)
+    @matches = Match.where(vinyle1: @vinyles).or(Match.where(vinyle2: @vinyles))
   end
 
   def show
     @match = Match.find(params[:id])
+    @messages = @match.messages
     @message = Message.new
   end
 

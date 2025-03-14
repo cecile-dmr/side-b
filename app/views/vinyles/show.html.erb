@@ -1,17 +1,20 @@
-  <%= link_to "Retour à la liste", profile_path, class: "btn btn-secondary" %>
+<div class="container d-flex flex-column gap-5">
 
-  <h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1>
+  <%= link_to "Retour à la liste", profile_path, class: "btn btn-secondary arrow-back" %>
 
-<p><strong>Année :</strong> <%= @vinyle.year %></p>
-<p><strong>Description :</strong> <%= @vinyle.description %></p>
+  <div class="vinyle-card">
+    <h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1>
+      <div>
+        <p><strong>Année :</strong> <%= @vinyle.year %></p>
+        <p><strong>Description :</strong> <%= @vinyle.description %></p>
+        <p><strong>Etat du vinyle :</strong> <%= @vinyle.quality %></p>
+      </div>
+  </div>
+  <div class="d-flex justify-content-center gap-4 mt-4">
+    <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+    <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
+  </div>
 
-<div class="mt-3">
-  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-warning" %>
-
-
-  <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-danger" %>
 </div>
-
-
 
 <%= render "shared/navbar" %>
