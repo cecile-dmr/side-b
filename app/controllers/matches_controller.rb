@@ -14,7 +14,6 @@ class MatchesController < ApplicationController
   def matches
     @vinyles = Vinyle.where(user: current_user)
     @matches = Match.where(vinyle1: @vinyles).or(Match.where(vinyle2: @vinyles))
-
   end
 
   def show
