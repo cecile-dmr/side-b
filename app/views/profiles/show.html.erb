@@ -11,7 +11,7 @@
     <% @vinyles.each do |vinyle| %>
     <%= link_to vinyle_path(vinyle) do %>
           <div class="vinyles-card d-flex justify-content-around mb-5">
-            <%= image_tag "vinyl-record", class:"avatar", alt:"image-vinyles" %>
+            <%= image_tag "vinyl-record.png", class:"avatar", alt:"image-vinyles" %>
             <div>
               <h2><%= vinyle.title %></h2>
               <p><%= vinyle.description %></p>
