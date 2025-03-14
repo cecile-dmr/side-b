@@ -12,6 +12,8 @@ require "discogs"
 
 UserLike.destroy_all
 puts "Cleaning user likes..."
+UserDislike.destroy_all
+puts "Cleaning user dislikes..."
 Match.destroy_all
 puts "Cleaning matches..."
 Vinyle.destroy_all

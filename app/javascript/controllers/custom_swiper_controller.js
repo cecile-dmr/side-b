@@ -101,4 +101,15 @@ export default class extends Controller {
   love.addEventListener('click', loveListener);
   }
 
+
+
+  static targets = [ "" ]
+
+  like() {
+    
+  }
+
+  dislike() {
+
+  }
 }
