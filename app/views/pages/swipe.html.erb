@@ -1,51 +1,27 @@
-<div class="container" data-controller="swipe">
-  <div class="swipe">
+<div class="tinder" data-controller="custom-swiper">
+  <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
+
+  <div class="tinder--cards">
     <% @vinyles.each do |vinyle| %>
-      <div class="card-swipe ">
-        <div class="card-swipe-img-back">
-          <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" class="d-block w-100 card-swipe-img-back" alt="">
-          <div class="card-swipe-content">
-            <h3><%= vinyle.title %></h3>
-            <p><%= vinyle.description %></p>
-          </div>
+      <div class="tinder--card">
+        <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" alt="">
+        <div class="tinder--card--content">
+          <h3><%= vinyle.title %></h3>
+          <p><%= vinyle.description %></p>
         </div>
       </div>
     <% end %>
-
-    <div class="buttons-swipe">
-      <button class="button-swipe dislike" data-action="click->swipe#dislike">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <button class="button-swipe like" data-action="click->swipe#like">
-        <i class="fa-solid fa-heart"></i>
-      </button>
-    </div>
   </div>
 
-
-
-</div>
-  <div class="tinder" data-controller="custom-swiper">
-    <div class="tinder--status">
+  <div class="tinder--buttons">
+    <button id="nope" data-action="click->custum-swiper#dislike">
       <i class="fa fa-remove"></i>
+    </button>
+    <button id="love" data-action="click->custum-swiper#like">
       <i class="fa fa-heart"></i>
-    </div>
-
-    <div class="tinder--cards">
-      <% @vinyles.each do |vinyle| %>
-        <div class="tinder--card">
-        
-          <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" alt="">
-          <h3><%= vinyle.title %></h3>
-          <p><%= vinyle.description %></p>
-
-
-        </div>
-      <% end %>
-    </div>
-
-    <div class="tinder--buttons">
-      <button id="nope"><i class="fa fa-remove"></i></button>
-      <button id="love"><i class="fa fa-heart"></i></button>
-    </div>
+    </button>
   </div>
+</div>

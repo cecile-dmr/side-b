@@ -1,56 +1,8 @@
-.card-swipe {
-  width: 100%;
-  height: 70vh;
-  border-radius: 70px;
-  position: relative;
-  box-shadow: #000000 3px 3px 15px;
-}
-.card-swipe-img-back {
-  width: 100%;
-  height: 100%;
-  border-radius: 70px;
-}
-.card-swipe-content {
-  z-index: 10000;
-  position: absolute;
-  bottom: 40px;
-  left: 35px;
-}
-.buttons-swipe {
-  flex: 0 0 100px;
-  text-align: center;
-  padding-top: 20px;
-}
-.button-swipe {
-  border-radius: 50%;
-  line-height: 90px;
-  width: 90px;
-  border: 0;
-  background: #FFFFFF;
-  display: inline-block;
-  margin: 0 8px;
-}
-.buttons-swipe .fa-solid {
-  font-size: 50px;
-  vertical-align: middle;
-}
-.dislike {
-  color: $light-blue
-}
-.like {
-  color: $rose
-}
-
-
-
-
 *, *:before, *:after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
-
 
 .tinder {
   width: 100vw;
@@ -142,24 +94,13 @@
 
 }
 
-.tinder--card h3 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
+.tinder--card--content {
+  z-index: 10000;
+  bottom: 15px;
+  left: 30px;
   pointer-events: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-}
-
-.tinder--card p {
-  margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
-  pointer-events: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  text-align: start;
 }
 
 .tinder--buttons {
@@ -181,18 +122,68 @@
 .tinder--buttons button:focus {
   outline: 0;
 }
-
+.tinder--buttons button {
+  border-radius: 50%;
+  line-height: 90px;
+  width: 90px;
+}
 .tinder--buttons i {
-  font-size: 32px;
   vertical-align: middle;
 }
 
 .fa-heart {
-  color: #FFACE4;
+  color: $rose;
   font-size: 50px;
 }
 
 .fa-remove {
-  color: #CDD6DD;
+  color: $light-blue;
   font-size: 50px;
 }
+
+
+// .card-swipe {
+//   width: 100%;
+//   height: 70vh;
+//   border-radius: 70px;
+//   position: relative;
+//   box-shadow: #000000 3px 3px 15px;
+// }
+// .card-swipe-img-back {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 70px;
+// }
+// .card-swipe-content {
+//   z-index: 10000;
+//   position: absolute;
+//   bottom: 100px;
+//   left: 35px;
+
+//   pointer-events: none;
+//   position: fixed;
+// }
+// .buttons-swipe {
+//   flex: 0 0 100px;
+//   text-align: center;
+//   padding-top: 20px;
+// }
+// .button-swipe {
+//   border-radius: 50%;
+//   line-height: 90px;
+//   width: 90px;
+//   border: 0;
+//   background: #FFFFFF;
+//   display: inline-block;
+//   margin: 0 8px;
+// }
+// .buttons-swipe .fa-solid {
+//   font-size: 50px;
+//   vertical-align: middle;
+// }
+// .dislike {
+//   color: $light-blue
+// }
+// .like {
+//   color: $rose
+// }
