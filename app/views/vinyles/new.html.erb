@@ -1,8 +1,9 @@
 <div class="container">
-<h1>Ajoute ton Vinyle</h1>
+<h1 class='mt-5'>Ajoute ton Vinyle</h1>
 
 <%= render "shared/form", vinyle: @vinyle%>
 
-
-<%= render "shared/navbar" %>
+<div class='d-flex justify-content-center'>
+<%= link_to "Annuler", @profile_path, class: "btn btn-lightred" %>
+</div>
 </div>

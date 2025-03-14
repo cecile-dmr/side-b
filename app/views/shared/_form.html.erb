@@ -1,10 +1,11 @@
-<%= simple_form_for vinyle, local: true do |f| %>
-  <%= f.input :title, label: "Titre du vinyle", input_html: { class: 'form-field' } %>
-  <%= f.input :artist, label: "Artiste", input_html: { class: 'form-field' } %>
-  <%= f.input :year, label: "Année" , input_html: { class: 'form-field' } %>
-  <%= f.input :description, label: "Description" , input_html: { class: 'form-field' } %>
-  <div class='d-flex justify-content-around'><%= f.collection_radio_buttons :quality, [['Neuf', 'Neuf'] ,['Occasion', 'Occasion']], :first, :last %></div>
-  <div class='d-flex justify-content-center mt-5'>
-  <%= f.submit value: "Valider", class:'btn-lavandia'%>
-  </div>
-<% end %>
+  <%= simple_form_for vinyle, local: true do |f| %>
+    <%= f.input :title, label: "Titre du vinyle", input_html: { class: 'form-field' } %>
+    <%= f.input :artist, label: "Artiste", input_html: { class: 'form-field' } %>
+    <%= f.input :year, label: "Année" , input_html: { class: 'form-field' } %>
+    <%= f.input :description, label: "Description" , input_html: { class: 'form-field' } %>
+    <div class='d-flex justify-content-around'><%= f.collection_radio_buttons :quality, [['Neuf', 'Neuf'] ,['Occasion', 'Occasion']], :first, :last %></div>
+    <%= f.input :avatar, as: :file, label: "Téléchargez une photo" , input_html: { class: 'form-field' } %>
+    <div class='d-flex justify-content-center mt-5'>
+    <%= f.submit value: "Valider", class:'btn-lavandia'%>
+    </div>
+  <% end %>
