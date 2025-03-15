@@ -4,9 +4,16 @@
   margin: 0;
 }
 
+.banner{
+  height: 14vh;
+  text-align: center;
+  img {
+    height: 100%;
+  }
+}
 .tinder {
   width: 100vw;
-  height: 100vh;
+  height: 75vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -63,7 +70,7 @@
   display: inline-block;
   width: 90vw;
   max-width: 400px;
-  height: 70vh;
+  height: 60vh;
   background: #FFFFFF;
   border-radius: 8px;
   position: absolute;
