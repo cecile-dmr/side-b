@@ -21,12 +21,14 @@
     <%= link_to match do %>
       <div class="match-details border d-flex">
 
-        <%= image_tag 'user.png', alt: "text", class:"avatar" %>
+        <%= image_tag 'user.png', alt: "text", class:"avatar me-3" %>
         <div>
         <h4><%= match.vinyle1.user.email %></h4>
-        <%# ligne du dessus a changer par le vrai no; de la personne aui a like %>
-        <p>Coucou, j'aime bien ton vinyle</p>
+
+
+        <%# ligne du dessus a changer par le vrai non de la personne qui a liké le vinyle %>
         <%# ligne du dessus a changer par le vrai dernier message %>
+        <%= match.messages.last.content if match.messages.any? %>
 
         </div>
       </div>
