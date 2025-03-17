@@ -6,7 +6,7 @@
       <div id="messages" class="messages">
      <%= turbo_stream_from "match_#{@match.id}_messages" %>
         <% @match.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
+          <%= render "messages/message", message: message, user: current_user %>
         <% end %>
       </div>
     <% else %>
