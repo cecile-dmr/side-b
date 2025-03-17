@@ -81,10 +81,18 @@
 
 .form-field {
   background-color: #fff2f3;
-  width: 100%;
-  color: rgba(0, 0, 0, 0.103);
-  border: solid 0.5px #f1aead;
-  border-radius: 20px;
-  padding: 15px;
-  text-decoration: none;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  border: solid 1px #f1aead;
+  border-radius: 50px;
+  box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+}
+
+.form-field::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: #888;
 }
