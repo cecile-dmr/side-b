@@ -90,9 +90,6 @@ end
 
 #------------------------------------------------------------------
 
-
-puts "Création des likes..."
-
 # users = User.all
 # vinyles = Vinyle.all
 
@@ -101,6 +98,7 @@ puts "Création des likes..."
 #   UserLike.create!(user: user, vinyle: vinyles.sample)
 # end
 
+puts "Création des likes..."
 
 
 
