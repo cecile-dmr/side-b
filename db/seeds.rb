@@ -10,6 +10,7 @@
 
 require "discogs"
 
+Message.destroy_all
 UserLike.destroy_all
 puts "Cleaning user likes..."
 UserDislike.destroy_all
@@ -39,6 +40,18 @@ users = [theo, cecile, baptiste, aldjia]
 
 puts ENV["DISCOGS"]
 users.each do |user|
+
+  Vinyle.create(
+    title: "#{user.email} vinyle",
+    artist: 'artiste',
+    description: "description",
+    available: true,
+    quality: "super",
+    year: "2004",
+    user: user
+  )
+
+
   puts "Création d'un vinyle"
   release = wrapper.get_release("#{rand(250000..300000)}")
   vinyle = Vinyle.new(
@@ -57,6 +70,22 @@ users.each do |user|
   else
     puts "vinyle incomplet"
   end
+
+
+
+
+  Vinyle.create(
+    title: "#{user.email} vinyle 2",
+    artist: 'artiste',
+    description: "description",
+    available: true,
+    quality: "super",
+    year: "2004",
+    user: user
+  )
+
+
+
 end
 
 #------------------------------------------------------------------
@@ -73,9 +102,30 @@ puts "Création des likes..."
 # end
 
 
-UserLike.create!(user: User.first, vinyle: User.last.vinyles.sample)
-UserLike.create!(user: User.last, vinyle: User.first.vinyles.sample)
 
+
+
+
+
+UserLike.create!(user: theo, vinyle: aldjia.vinyles.first)
+UserLike.create!(user: aldjia, vinyle: theo.vinyles.first)
+
+UserLike.create!(user: theo, vinyle: aldjia.vinyles.last)
+UserLike.create!(user: aldjia, vinyle: theo.vinyles.last)
+
+
+
+UserLike.create!(user: cecile, vinyle: aldjia.vinyles.first)
+UserLike.create!(user: aldjia, vinyle: cecile.vinyles.first)
+
+UserLike.create!(user: cecile, vinyle: aldjia.vinyles.last)
+UserLike.create!(user: aldjia, vinyle: cecile.vinyles.last)
+
+UserLike.create!(user: baptiste, vinyle: aldjia.vinyles.first)
+UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.first)
+
+UserLike.create!(user: baptiste, vinyle: aldjia.vinyles.last)
+UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.last)
 
 puts UserLike.count
 puts Match.count

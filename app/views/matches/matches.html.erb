@@ -1,9 +1,41 @@
-
+<div class="">
+<h1 class='text-center'>Side.B</h1>
 <% if @matches.any? %>
-  <h2>Your matches</h2>
-  <ul>
+  <h2 class= 'text-center'>Nouveaux échanges</h2>
+  <div>
+
+    <div class="matches-bar">
+      <% @matches.each do |match| %>
+        <%= link_to match do %>
+          <div class="match-bubble" style="background-image: url('https://images.unsplash.com/photo-1602848597941-0d3d3a2c1241?q=80&w=3550&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');" >
+            <%# CHANGER L'IMAGE %>
+
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+
+  <h3 class='text-center'>Messages</h3>
+  <div class="matches-details container">
     <% @matches.each do |match| %>
-      <li><%= link_to match.vinyle1.title, match %></li>
+    <%= link_to match do %>
+      <div class="match-details border d-flex">
+
+        <%= image_tag 'user.png', alt: "text", class:"avatar" %>
+        <div>
+        <h4><%= match.vinyle1.user.email %></h4>
+        <%# ligne du dessus a changer par le vrai no; de la personne aui a like %>
+        <p>Coucou, j'aime bien ton vinyle</p>
+        <%# ligne du dessus a changer par le vrai dernier message %>
+
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
+
+
+
+
 <% end %>
+</div>
