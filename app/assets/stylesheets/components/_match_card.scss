@@ -34,3 +34,31 @@
   font-size: 16px;
   margin: 10px 0;
 }
+
+.match-bubble {
+  // background-image: url('profile_user.jpg');
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-position: center;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.matches-bar {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 90vw;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+matches-bar::-webkit-scrollbar {
+  display: none;
+}

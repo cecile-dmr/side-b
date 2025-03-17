@@ -50,13 +50,13 @@
     }
 
     .message.sent .message-content {
-      align-self: flex-start;
+      align-self: flex-end;
       background: $blue;
       color: $light-gray;
     }
 
     .message.received .message-content {
-      align-self: flex-end;
+      align-self: flex-start;
       background: $gray-200;
     }
   }

@@ -15,7 +15,9 @@ class UserLike < ApplicationRecord
   def verify_match
     vinyle.user.user_likes.each do |like|
       if user == like.vinyle.user
-        Match.create!(vinyle1: self.vinyle, vinyle2: like.vinyle)
+        unless Match.where(vinyle1: self.vinyle, vinyle2: like.vinyle).exists? || Match.where(vinyle1: like.vinyle, vinyle2: self.vinyle).exists?
+          Match.create!(vinyle1: self.vinyle, vinyle2: like.vinyle)
+        end
       end
     end
   end
