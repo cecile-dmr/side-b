@@ -39,30 +39,29 @@ users = [theo, cecile, baptiste, aldjia]
 
 puts ENV["DISCOGS"]
 users.each do |user|
-  puts "Création d'un vinyle"
-  release = wrapper.get_release("#{rand(250000..300000)}")
-  vinyle = Vinyle.new(
-    title: release.title,
-    artist: release.artists_sort,
-    description: release.genres&.first || release.genres || release.genre || "Unknown",
-    available: true,
-    quality: quality.sample,
-    year: release&.year || "2004",
-    user: user
-  )
-  puts vinyle.valid?
-  if vinyle.valid?
-    vinyle.save!
-    puts "Created #{vinyle.title}"
-  else
-    puts "vinyle incomplet"
+  3.times do
+    puts "Création d'un vinyle"
+    release = wrapper.get_release("#{rand(250000..300000)}")
+    vinyle = Vinyle.new(
+      title: release.title,
+      artist: release.artists_sort,
+      description: release.genres&.first || release.genres || release.genre || "Unknown",
+      available: true,
+      quality: quality.sample,
+      year: release&.year || "2004",
+      user: user
+    )
+    puts vinyle.valid?
+    if vinyle.valid?
+      vinyle.save!
+      puts "Created #{vinyle.title}"
+    else
+      puts "vinyle incomplet"
+    end
   end
 end
 
 #------------------------------------------------------------------
-
-
-puts "Création des likes..."
 
 # users = User.all
 # vinyles = Vinyle.all
@@ -72,6 +71,7 @@ puts "Création des likes..."
 #   UserLike.create!(user: user, vinyle: vinyles.sample)
 # end
 
+puts "Création des likes..."
 
 UserLike.create!(user: User.first, vinyle: User.last.vinyles.sample)
 UserLike.create!(user: User.last, vinyle: User.first.vinyles.sample)

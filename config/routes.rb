@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#swipe"
-  
+
   get "/profile/:id", to: "profiles#show", as: "profile"
 
   get "/matches", to: "matches#matches"
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :matches, only: :show do
     resources :messages, only: :create
   end
+
+  resources :user_likes, only: [:create]
+  resources :user_dislikes, only: [:create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
