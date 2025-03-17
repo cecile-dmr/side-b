@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  after_initialize do
-    self.search_radius ||= 50
-  end
+  # after_initialize do
+  #   self.search_radius || = 50
+  # end
 
 end
