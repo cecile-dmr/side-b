@@ -8,4 +8,11 @@ class User < ApplicationRecord
   has_many :user_likes
   has_many :user_dislikes
   has_many :matches, through: :vinyles
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  after_initialize do
+    self.search_radius ||= 50
+  end
+
 end
