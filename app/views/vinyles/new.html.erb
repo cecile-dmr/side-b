@@ -3,11 +3,21 @@
 
 <%= link_to image_tag("back.png", width: "40px", height: "40px"), root_path, class: "mt-5 d-block" %>
 
-<h1 class='mt-5'>Ajoute ton Vinyle</h1>
+  <div class="container">
+    <h1 class='mt-5 mb-4'>Ajoute ton Vinyle</h1>
+    <%= simple_form_for @vinyle, local: true do |f| %>
+      <%= f.input :title, placeholder: "Titre", label: false, input_html: { class: 'form-field mb-4' } %>
+      <%= f.input :artist, placeholder: "Artiste", label: false,  input_html: { class: 'form-field mb-4' } %>
+      <%= f.input :year, placeholder: "Année", label: false, input_html: { class: 'form-field mb-4' } %>
+      <%= f.input :description, placeholder: "Description", label: false, input_html: { class: 'form-field mb-4' } %>
 
-<%= render "shared/form", vinyle: @vinyle%>
+      <%= f.input :avatar, as: :file, input_html: { class: 'form-field mb-4' }, label: false %>
+      <%= f.input :quality, as: :radio_buttons, collection: [['Neuf', 'Neuf'] ,['Occasion', 'Occasion'], ['Usé', 'Usé']], label_method: :second, value_method: :first, label: false, wrapper: :horizontal_collection_inline %>
 
-<div class='d-flex justify-content-center'>
-<%= link_to "Annuler", @profile_path, class: "btn btn-lightred" %>
-</div>
+      <div class='d-flex justify-content-center mt-5 gap-4'>
+      <%= f.submit value: "Valider", class:'btn-lavandia'%>
+      <%= link_to "Annuler", @profile_path, class: "btn btn-lightred" %>
+      </div>
+    <% end %>
+  </div>
 </div>
