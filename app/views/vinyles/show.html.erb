@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column gap-5">
 
-  <%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path %>
+  <%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path, class: "mt-5 d-block" %>
 
   <div class="vinyle-card">
     <div class="vinyle-image-container">
@@ -13,7 +13,7 @@
         <p><strong>Etat du vinyle :</strong><%= @vinyle.quality %></p>
       </div>
   </div>
-  <div class="button-container d-flex justify-content-center gap-4 mt-4">
+  <div class="button-container d-flex justify-content-center gap-4">
     <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
     <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
   </div>
