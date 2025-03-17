@@ -2,20 +2,24 @@
 
   <%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path, class: "mt-5 d-block" %>
 
-  <div class="vinyle-card">
+  <div class="vinyle-card mb-5 pb-5">
     <div class="vinyle-image-container">
       <%= image_tag "vinyl-record.png", class: "vinyle-image" %>
     </div>
-    <h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1>
-      <div class='d-flex flex-direction-column'>
-        <p><strong>Année :</strong><%= @vinyle.year %></p>
-        <p><strong>Description :</strong><%= @vinyle.description %></p>
-        <p><strong>Etat du vinyle :</strong><%= @vinyle.quality %></p>
+    <div><h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1></div>
+    <div class="container d-flex justify-content-start">
+      <div class="vinyle-details mt-4">
+        <h2><strong>Année:</strong></h2><p> <%= @vinyle.year %></p>
+        <h2><strong>Description:</strong></h2><p> <%= @vinyle.description %></p>
+        <h2><strong>Etat du vinyle:</strong></h2><p> <%= @vinyle.quality %></p>
       </div>
+    </div>
   </div>
-  <div class="button-container d-flex justify-content-center gap-4">
-    <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
-    <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
-  </div>
+</div>
+
+<div class="button-container d-flex justify-content-center gap-4">
+  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+  <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
+</div>
 
 </div>
