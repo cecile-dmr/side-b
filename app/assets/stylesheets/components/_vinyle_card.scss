@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  // background: #fff2f3;
   background: #FFF2F3;
   border: 2px solid #f1aead;
   color: rgb(6, 5, 5);
@@ -45,4 +44,23 @@
   object-fit: cover;
   border: 3px solid #859cd2;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.vinyle-info {
+  flex-grow: 1;
+  margin-left: 16px;
+  text-align: left;
+  padding: 13px 0;
+  border-bottom: #adb5bd 1px solid;
+  h2 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

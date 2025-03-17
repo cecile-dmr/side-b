@@ -19,17 +19,20 @@
 }
 
 .btn-add {
+  font-family: 'Poppins';
   height: 85px;
   width: 85px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #BCE6F4 ;
+  background-color: #BCE6F4;
   border: none;
-  font-weight: bold;
-  font-size: x-large;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 70px;
   color: white;
+  font-style: normal !important;
 }
 
 .btn-lavandia {
@@ -39,7 +42,8 @@
   border: none;
   border-radius: 30px;
   font-weight:lighter;
-  padding: 15px;
+  height: 40px;
+  padding: 10px !important;
   text-decoration: none;
   box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
 }
@@ -51,7 +55,8 @@
   border: none;
   border-radius: 30px;
   font-weight:lighter;
-  padding: 15px;
+  height: 40px;
+  padding: 10px !important;
   text-decoration: none;
   box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
 }
