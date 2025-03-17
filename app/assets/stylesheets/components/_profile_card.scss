@@ -21,6 +21,7 @@ hr {
 
 
 .pastille {
+  font-family: "Inter";
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -29,8 +30,8 @@ hr {
 
 .profile-card {
   img {
-  width: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+    // width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 }
