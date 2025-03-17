@@ -4,11 +4,21 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.match = @match
     @message.user = current_user
+
     if @message.save
-      redirect_to match_path(@match)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(:messages,
+            partial: "messages/message",
+            target: "messages",
+            locals: { message: @message, user: current_user })
+          end
+        format.html { redirect_to match_path(@match) }
+      end
     else
       render "matches/show", status: :unprocessable_entity
     end
+
   end
 
   def show

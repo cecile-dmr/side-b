@@ -19,39 +19,44 @@
 }
 
 .btn-add {
+  font-family: 'Poppins';
   height: 85px;
   width: 85px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #BCE6F4 ;
+  background-color: #BCE6F4;
   border: none;
-  font-weight: bold;
-  font-size: x-large;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 70px;
   color: white;
+  font-style: normal !important;
 }
 
 .btn-lavandia {
   background-color: #859cd2;
-  width: 40%;
+  width: 50%;
   color: white;
   border: none;
   border-radius: 30px;
   font-weight:lighter;
-  padding: 15px;
+  height: 45px;
+  padding: 10px !important;
   text-decoration: none;
   box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
 }
 
 .btn-lightred {
   background-color: #f1aead;
-  width: 40%;
+  width: 50%;
   color: white;
   border: none;
   border-radius: 30px;
   font-weight:lighter;
-  padding: 15px;
+  height: 45px;
+  padding: 10px !important;
   text-decoration: none;
   box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
 }
@@ -76,10 +81,30 @@
 
 .form-field {
   background-color: #fff2f3;
-  width: 100%;
-  color: rgba(0, 0, 0, 0.103);
-  border: solid 0.5px #f1aead;
-  border-radius: 20px;
-  padding: 15px;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  border: solid 1px #f1aead;
+  border-radius: 50px;
+  box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+}
+
+.form-field::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: #888;
+}
+
+.btn-loc {
+  // background-color: #ffffff;
+  width: auto;
+  height: auto;
+  color: rgb(202, 84, 84);
+  border: solid 0.2px #f1aead;
+  border-radius: 10px;
+  font-weight:lighter;
+  font-size: 15px ;
   text-decoration: none;
 }
