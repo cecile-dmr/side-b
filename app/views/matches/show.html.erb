@@ -1,5 +1,15 @@
+<div class="vinyles-container">
+  <div class="vinyle vinyle-left">
+    <%= image_tag "vinyl1.png", alt: "Vinyle 1", class: "vinyle-img" %>
+  </div>
+  <div class="vinyle vinyle-right">
+    <%= image_tag "vinyl-record.png", alt: "Vinyle 2", class: "vinyle-img" %>
+  </div>
+</div>
+
+
 <div class="container chat">
-  <h1>Your match for <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h1>
+  <h1>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h1>
 
 
     <% if @messages.any? %>
