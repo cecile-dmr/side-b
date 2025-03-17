@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#swipe"
-  
+
   get "/profile/:id", to: "profiles#show", as: "profile"
 
   get "/matches", to: "matches#matches"
-
+# ---
+  patch 'update_radius', to: 'pages#update_radius'
+# ---
   resources :users, only: [:show]
 
   resources :vinyles, except: [:index] do
