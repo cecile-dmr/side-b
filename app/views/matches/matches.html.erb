@@ -1,5 +1,7 @@
-<div class="">
-<h1 class='text-center'>Side.B</h1>
+<div class="container position-relative mt-3">
+  <%= link_to image_tag("back.png", width: "40px", height: "40px"), root_path, class: "position-absolute start-0 ms-3" %>
+  <h1 class="text-center m-0">Side.B</h1>
+</div>
 <% if @matches.any? %>
   <h2 class= 'text-center'>Nouveaux échanges</h2>
   <div>
@@ -35,9 +37,5 @@
       <% end %>
     <% end %>
   </div>
-
-
-
-
 <% end %>
 </div>
