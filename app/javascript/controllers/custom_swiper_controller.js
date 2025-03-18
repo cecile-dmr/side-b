@@ -32,6 +32,7 @@ export default class extends Controller {
         },
         body: JSON.stringify(user_data)
       })
+      console.log(user_data)
     }
 
     var tinderContainer = document.querySelector('.tinder');
@@ -97,25 +98,38 @@ export default class extends Controller {
           var rotate = xMulti * yMulti;
 
           event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+
+          // Appeler like ou dislike en fonction de la direction finale
+          const user_data = {
+            user_id: el.dataset.userId,
+            vinyl_id: el.dataset.vinylId
+          };
+          if (event.deltaX > 80) {
+            like(user_data);
+          } else if (event.deltaX < -80) {
+            dislike(user_data);
+          }
+
           initCards();
+
+          // hammertime.on("panleft", function(e) {
+          //   const user_data = {
+          //     user_id: el.dataset.userId,
+          //     vinyl_id: el.dataset.vinylId
+          //   }
+          //   dislike(user_data);
+          // })
+
+          // hammertime.on("panright", function(e) {
+          //   const user_data = {
+          //     user_id: el.dataset.userId,
+          //     vinyl_id: el.dataset.vinylId
+          //   }
+          //   like(user_data);
+          // })
         }
       });
 
-      hammertime.on("panleft", function(e) {
-        const user_data = {
-          user_id: el.dataset.userId,
-          vinyl_id: el.dataset.vinylId
-        }
-        dislike(user_data);
-      })
-
-      hammertime.on("panright", function(e) {
-        const user_data = {
-          user_id: el.dataset.userId,
-          vinyl_id: el.dataset.vinylId
-        }
-        like(user_data);
-      })
     });
 
     function createButtonListener(love) {
@@ -132,16 +146,16 @@ export default class extends Controller {
         if (love) {
           card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
           const user_data = {
-            user_id: el.dataset.userId,
-            vinyl_id: el.dataset.vinylId
-          }
+            user_id: card.dataset.userId,
+            vinyl_id: card.dataset.vinylId
+          };
           like(user_data);
         } else {
           card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
           const user_data = {
-            user_id: el.dataset.userId,
-            vinyl_id: el.dataset.vinylId
-          }
+            user_id: card.dataset.userId,
+            vinyl_id: card.dataset.vinylId
+          };
           dislike(user_data);
         }
 
@@ -160,8 +174,8 @@ export default class extends Controller {
   }
 
 
-  flip() {
-    this.flipperTarget.classList.toggle("flip");
-  }
+  // flip() {
+  //   this.flipperTarget.classList.toggle("flip");
+  // }
 
 }
