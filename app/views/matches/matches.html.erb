@@ -7,14 +7,13 @@
   <div>
 
     <div class="matches-bar">
-      <% @matches.each do |match| %>
+      <% @matches.each_with_index do |match, index| %>
         <%= link_to match do %>
-          <div class="match-bubble" style="background-image: url('https://images.unsplash.com/photo-1602848597941-0d3d3a2c1241?q=80&w=3550&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');" >
-            <%# CHANGER L'IMAGE %>
-
+          <div class="match-bubble" style="background-image: url('<%= asset_path "vinyles/#{index}.jpg" %>');">
           </div>
         <% end %>
       <% end %>
+
   </div>
 
   <h3 class='text-center'>Messages</h3>
