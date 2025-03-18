@@ -28,13 +28,13 @@ quality = ["Parfait", "Très bon", "Bon"]
 
 
 
-theo = User.create!(email: "theo@mail.com", password: "hellohello")
+theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "rue des frères Vaillant, Lille")
 p theo
-cecile = User.create!(email: "cecile@mail.com", password: "hellohello")
+cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Marseille")
 p cecile
-baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello")
+baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello", address: "Marcq-en-Baroeul")
 p baptiste
-aldjia = User.create!(email: "aldjia@mail.com", password: "hellohello")
+aldjia = User.create!(email: "aldjia@mail.com", password: "hellohello", address: "Villeneuve-d'Ascq")
 p aldjia
 users = [theo, cecile, baptiste, aldjia]
 
@@ -50,7 +50,6 @@ users.each do |user|
     year: "2004",
     user: user
   )
-
 
   puts "Création d'un vinyle"
   release = wrapper.get_release("#{rand(250000..300000)}")
@@ -71,9 +70,6 @@ users.each do |user|
     puts "vinyle incomplet"
   end
 
-
-
-
   Vinyle.create(
     title: "#{user.email} vinyle 2",
     artist: 'artiste',
@@ -83,9 +79,7 @@ users.each do |user|
     year: "2004",
     user: user
   )
-
-
-
+  
 end
 
 #------------------------------------------------------------------

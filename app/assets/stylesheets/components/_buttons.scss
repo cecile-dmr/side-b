@@ -99,12 +99,29 @@
 
 .btn-loc {
   // background-color: #ffffff;
-  width: auto;
-  height: auto;
-  color: rgb(202, 84, 84);
-  border: solid 0.2px #f1aead;
+  width: 110px;
+  height: 21px;
+  background-color: none;
+  color: #c2c6fb;
+  border: none;
   border-radius: 10px;
   font-weight:lighter;
   font-size: 15px ;
   text-decoration: none;
+}
+
+.field-loc {
+  border: none;
+  width:84%;
+  height: 30px;
+  color: lightgray;
+  font-weight:lighter;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+}
+
+.div-loc {
+  border: solid 0.5px #ffffff;
+  border-radius: 12px;
+  // background-color: #BCE6F4;
 }

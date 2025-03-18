@@ -1,7 +1,7 @@
-<div id="splash-screen" class="splash-screen d-flex flex-column">
+<%# <div id="splash-screen" class="splash-screen d-flex flex-column">
   <h1>Side.B</h1>
   <p>Loading...</p>
-</div>
+</div> %>
 
 <div class="banner">
   <img src="https://imgs.search.brave.com/JWELZm4_gqbCFz8yoc2Mw58QZKGcVbsYutxwylzi-WY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ5/MjM5MzM0NS92ZWN0/b3IvYXJ0aWZpY2lh/bC1pbnRlbGxpZ2Vu/Y2Utcm9ib3QtbG9n/by5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9Y0JEendNZDBi/dWlkTm5fOG1Wa0ww/bDhNVDdwMTRpTnJT/cmw2Zm5PLXFmYz0" alt="">
@@ -10,13 +10,13 @@
 
  <%# FORMULAIRE POUR CHANGER LE PERIMETRE DE RECHERCHE %>
 <br>
-<div class='container', style="font-size: 15px; color: #f1aead;">
+<div class='container', style="font-size: 15px; color: #c2c6fb;">
   <%= form_with url: update_radius_path, method: :patch, local: false do |f| %>
   <%# <%= f.label :search_radius, "périmètre(km)" %>
-  <div style='width:100%;'>
+  <div class="d-flex gap-3 align-items-center div-loc">
+    <i class="fa-solid fa-location-dot"></i>
     <%= f.number_field :search_radius, min: 1, max: 100, step: 1,
-        value: current_user.search_radius.presence, placeholder: "périmètre (km)",
-        style: "width: 100px;" %>
+        value: current_user.search_radius.presence, placeholder: "- périmètre de la recherche (km) défaut:50 -", class:'field-loc' %>
     <%= f.submit "Valider", class: 'btn-loc' %>
   </div>
   <% end %>
