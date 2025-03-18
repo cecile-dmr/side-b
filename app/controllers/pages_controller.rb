@@ -42,18 +42,18 @@ class PagesController < ApplicationController
   #   @search_radius = current_user.update(search_radius: params[:search_radius])
   # end
 
-  def like
-    #on recup le vinyle que l'on a swipe
-    current_vinyle = Vinyle.find(id)
+  # def like
+  #   #on recup le vinyle que l'on a swipe
+  #   current_vinyle = Vinyle.find(id)
 
-    #on trouve le user a qui appartient ce vinyle
-    user_of_current_vinyle = User.find(current_vinyle.user_id)
+  #   #on trouve le user a qui appartient ce vinyle
+  #   user_of_current_vinyle = User.find(current_vinyle.user_id)
 
-    #on regarde si ce user a des "match"
-    if user_of_current_vinyle.matchs.each { |match| match.vinyle.user == current_user }
-      #creer un match
-    end
-  end
+  #   #on regarde si ce user a des "match"
+  #   if user_of_current_vinyle.matchs.each { |match| match.vinyle.user == current_user }
+  #     #creer un match
+  #   end
+  # end
 
   # def nearby_users
   #   User.near([latitude, longitude], search_radius)
