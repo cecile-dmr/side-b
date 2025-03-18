@@ -3,17 +3,7 @@ require "discogs"
 class PagesController < ApplicationController
 
   def swipe
-    if current_user.latitude && current_user.longitude
-      nearby_users = User.near([current_user.latitude, current_user.longitude], current_user.search_radius, order: false).pluck(:id)
-
-      @vinyles = Vinyle.joins(:user)
-                       .where(users: { id: nearby_users }) # Liste d'IDs filtrée
-                       .left_joins(:user_likes, :user_dislikes)
-                       .where.not(user_likes: { user_id: current_user.id })
-                       .where.not(user_dislikes: { user_id: current_user.id })
-    else
       @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
-    end
   end
 
   # def swipe
