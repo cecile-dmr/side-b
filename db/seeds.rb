@@ -28,9 +28,9 @@ quality = ["Parfait", "Très bon", "Bon"]
 
 
 
-theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "rue des frères Vaillant, Lille")
+theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "Bauvin")
 p theo
-cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Marseille")
+cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Santes")
 p cecile
 baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello", address: "Marcq-en-Baroeul")
 p baptiste
@@ -79,7 +79,7 @@ users.each do |user|
     year: "2004",
     user: user
   )
-  
+
 end
 
 #------------------------------------------------------------------
