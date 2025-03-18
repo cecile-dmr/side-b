@@ -16,7 +16,8 @@ Geocoder.configure(
   # always_raise: [],
 
   # Calculation options
-   units: :km,                 # :km for kilometers or :mi for miles
+  units: :km, # Pour récupérer les distances en kilomètres
+  distances: :spherical, # Désactive l'ordre SQL sur `distance`
   # distances: :linear          # :spherical or :linear
 
   # Cache configuration
