@@ -58,6 +58,12 @@
   scrollbar-width: none;
 }
 
-matches-bar::-webkit-scrollbar {
-  display: none;
+.matches-details {
+  .avatar {
+    background-size: cover;
+  }
+
+  a {
+    text-transform: capitalize;
+  }
 }

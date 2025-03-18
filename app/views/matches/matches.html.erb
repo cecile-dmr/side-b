@@ -2,39 +2,36 @@
   <%= link_to image_tag("back.png", width: "40px", height: "40px"), root_path, class: "position-absolute start-0 ms-3" %>
   <h1 class="text-center m-0">Side.B</h1>
 </div>
+
 <% if @matches.any? %>
   <h2 class= 'text-center'>Nouveaux échanges</h2>
-  <div>
 
-    <div class="matches-bar">
-      <% @matches.each_with_index do |match, index| %>
-        <%= link_to match do %>
-          <div class="match-bubble" style="background-image: url('<%= asset_path "vinyles/#{index}.jpg" %>');">
-          </div>
-        <% end %>
+  <div class="matches-bar">
+    <% @matches.each_with_index do |match, index| %>
+      <%= link_to match do %>
+        <div class="match-bubble" style="background-image: url('<%= asset_path "vinyles/#{index}.jpg" %>');">
+        </div>
       <% end %>
-
+    <% end %>
   </div>
 
   <h3 class='text-center'>Messages</h3>
-  <div class="matches-details container">
+
+  <div class="matches-details container d-grid gap-3">
     <% @matches.each do |match| %>
-    <%= link_to match do %>
-      <div class="match-details border d-flex">
+      <%= link_to match do %>
+        <div class="d-flex align-items-center">
 
-        <%= image_tag 'user.png', alt: "text", class:"avatar me-3" %>
-        <div>
-        <h4><%= match.vinyle1.user.email %></h4>
+          <% username = match.vinyle1.user.email.split('@').first %>
 
+          <div class="avatar" style="background-image: url('<%= asset_path "users/#{username}.jpg" %>');"></div>
 
-        <%# ligne du dessus a changer par le vrai non de la personne qui a liké le vinyle %>
-        <%# ligne du dessus a changer par le vrai dernier message %>
-        <%= match.messages.last.content if match.messages.any? %>
+          <p class="ms-2 fw-bold"><%= username %></h4>
+
+          <%= match.messages.last.content if match.messages.any? %>
 
         </div>
-      </div>
       <% end %>
     <% end %>
   </div>
 <% end %>
-</div>
