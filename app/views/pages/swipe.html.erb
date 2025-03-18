@@ -4,10 +4,6 @@
   <p>Loading...</p>
 </div> %>
 
-<div class="banner">
-  <img src="https://imgs.search.brave.com/JWELZm4_gqbCFz8yoc2Mw58QZKGcVbsYutxwylzi-WY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ5/MjM5MzM0NS92ZWN0/b3IvYXJ0aWZpY2lh/bC1pbnRlbGxpZ2Vu/Y2Utcm9ib3QtbG9n/by5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9Y0JEendNZDBi/dWlkTm5fOG1Wa0ww/bDhNVDdwMTRpTnJT/cmw2Zm5PLXFmYz0" alt="">
-</div>
-
 
  <%# FORMULAIRE POUR CHANGER LE PERIMETRE DE RECHERCHE %>
 <br>
@@ -33,7 +29,8 @@
   <div class="tinder--cards"  data-controller="custom-swiper">
     <% @vinyles.each do |vinyle| %>
       <div class="tinder--card" data-action="click->custom-swiper#flip" data-custom-swiper-target="flipper" data-vinyl-id="<%= vinyle.id %>" data-user-id="<%= current_user.id %>">
-        <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" alt="">
+        <img src="https://i.discogs.com/nuCUkfKJf1cWRErmw7r16HKVPVC9yPh9ii3LP-teBm4/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMDUy/MjI3LTE3Mzg4OTky/MDMtMjcxOS5qcGVn.jpeg" alt="Vinyle album cover">
+
         <div class="tinder--card--content">
           <h3><%= vinyle.title %></h3>
           <p><%= vinyle.description %></p>

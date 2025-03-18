@@ -34,11 +34,11 @@
     <% unless request.env["HTTP_REFERER"] %>
       <div id="splash-screen" class="splash-screen d-flex flex-column" data-controller="splash-screen">
         <h1>Side.B</h1>
-        <p data-splash-screen-target="loading">Loading</p>
+        <p data-splash-screen-target="loading">Chargement...</p>
       </div>
     <% end %>
 
-    <% if user_signed_in? %>
+    <% unless user_signed_in? && (request.path == '/matches' || request.path.match?(/^\/matches\/\d+$/)) %>
       <%= render "shared/navbar" %>
     <% end %>
   </body>
