@@ -1,3 +1,12 @@
+
+
+<div class="container position-relative mt-3">
+  <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "position-absolute start-0 ms-3 z-3" %>
+</div>
+
+<%#= button_to "Valider", validate_match_path(@match), method: :patch, class: "btn btn-success position-absolute end-0 me-3 z-3" %>
+</div>
+
 <div class="vinyles-container">
   <div class="vinyle vinyle-left">
     <%= image_tag "vinyl1.png", alt: "Vinyle 1", class: "vinyle-img" %>
@@ -7,13 +16,14 @@
   </div>
 </div>
 
-
 <div class="container chat">
   <h1>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h1>
 
 
+
+
     <%= turbo_stream_from :messages %>
-    <div id="messages" class="messages">
+    <div id="messages" class="messages overflow-scroll">
       <% if @messages.any? %>
           <% @match.messages.each do |message| %>
             <%= render "messages/message", message: message, user: current_user %>
