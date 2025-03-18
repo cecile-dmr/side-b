@@ -74,4 +74,8 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Allow requests by adding the following to your environment configuration
+  # config.hosts.clear
+  config.hosts << "4d03-2a01-cb0c-549-4a00-eda2-1692-494-69fe.ngrok-free.app"
 end

@@ -9,12 +9,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
   opacity: 1;
-  transition: opacity 1s ease-out;
 
   h1 {
     font-size: 80px;
   }
 
+
+}
+
+.splash-screen-hidden {
+  transition: opacity 1.5s ease;
+  opacity: 0;
 }

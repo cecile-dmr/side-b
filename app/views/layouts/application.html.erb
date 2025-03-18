@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render 'shared/ios_pwa_links' %>
+
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>" crossorigin="use-credentials">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Side.B">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
     <title>SideB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
@@ -14,12 +24,20 @@
       />
   </head>
 
-  <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
-    <%= yield %>
+    <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
+
+      <%= yield %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%# <%= render "shared/navbar" %>
+    <% unless request.env["HTTP_REFERER"] %>
+      <div id="splash-screen" class="splash-screen d-flex flex-column" data-controller="splash-screen">
+        <h1>Side.B</h1>
+        <p data-splash-screen-target="loading">Loading</p>
+      </div>
+    <% end %>
+
+    <%= render "shared/navbar" %>
   </body>
 </html>
