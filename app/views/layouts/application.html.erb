@@ -38,9 +38,6 @@
       </div>
     <% end %>
 
+    <%= render "shared/navbar" %>
   </body>
 </html>
-
-<% unless devise_controller? && controller_name == "sessions" && action_name == "new" %>
-  <%= render "shared/navbar" %>
-<% end %>
