@@ -26,9 +26,12 @@
 
           <div class="avatar" style="background-image: url('<%= asset_path "users/#{username}.jpg" %>');"></div>
 
-          <p class="ms-2 fw-bold"><%= username %></h4>
-
-          <%= match.messages.last.content if match.messages.any? %>
+          <div class="d-flex flex-column ms-2">
+            <p class="fw-bold mb-0"><%= username %></p>
+            <p>
+              <%= match.messages.last.content if match.messages.any? %>
+            </p>
+          </div>
 
         </div>
       <% end %>
