@@ -1,8 +1,9 @@
-<div class="container position-relative mt-3 d-flex flex-column gap-5">
-
+<div class="container">
   <%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path, class: "position-absolute start-0 ms-3" %>
 
-  <div class="vinyle-card mb-5 pb-5">
+  <div class="container position-relative mt-3 d-flex flex-column gap-5">
+
+  <div class="vinyle-card pb-5">
     <div class="vinyle-image-container">
       <%= cl_image_tag @vinyle.photo.key, class: "vinyle-image" %>
     </div>
@@ -18,8 +19,8 @@
 </div>
 
 <div class="button-container d-flex justify-content-center gap-4">
-  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
   <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
+  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
 </div>
 
 </div>
