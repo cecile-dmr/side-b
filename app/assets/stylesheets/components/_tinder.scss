@@ -1,6 +1,24 @@
+<<<<<<< HEAD:app/assets/stylesheets/components/_card_swipe.scss
+*, *:before, *:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.banner{
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 0;
+  }
+}
+=======
+>>>>>>> 2085528f80b37402356ab9b9461e42cf6e69b715:app/assets/stylesheets/components/_tinder.scss
 .tinder {
   width: 100vw;
-  height: 75vh;
+  min-height: 65vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -55,11 +73,18 @@
 .tinder--card {
   display: inline-block;
   width: 90vw;
+<<<<<<< HEAD:app/assets/stylesheets/components/_card_swipe.scss
+  max-width: 400px;
+  height: 90vw;
+  background: #FFFFFF;
+  border-radius: 8px;
+=======
   max-width: 300px;
   max-height: 410px;
   height: 60vh;
   background-color: $rose-light;
   border-radius: 12px;
+>>>>>>> 2085528f80b37402356ab9b9461e42cf6e69b715:app/assets/stylesheets/components/_tinder.scss
   position: absolute;
   will-change: transform;
   transition: all 0.3s ease-in-out;
