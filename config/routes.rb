@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root to: "pages#swipe"
 
-  get "/profile/:id", to: "profiles#show", as: "profile"
+  resources :profiles, only: [:show]
+  # get "/profile/:id", to: "profiles#show", as: "profile"
 
   get "/matches", to: "matches#matches"
 # ---
