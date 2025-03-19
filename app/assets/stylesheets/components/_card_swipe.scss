@@ -6,17 +6,14 @@
 
 .banner{
   height: 14vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h1 {
-    margin: 0;
+  text-align: center;
+  img {
+    height: 100%;
   }
 }
-
 .tinder {
   width: 100vw;
-  min-height: 65vh;
+  height: 75vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -62,6 +59,7 @@
 .tinder--cards {
   flex-grow: 1;
   padding-top: 40px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -71,20 +69,21 @@
 .tinder--card {
   display: inline-block;
   width: 90vw;
-  max-width: 300px;
-  max-height: 410px;
+  max-width: 400px;
   height: 60vh;
-  background-color: $rose-light;
-  border-radius: 12px;
+  background: #FFFFFF;
+  border-radius: 8px;
   position: absolute;
   will-change: transform;
   transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
   cursor: grab;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 5px;
+  box-shadow: #000000 3px 3px 15px;
 }
 
 .flip {
@@ -99,22 +98,19 @@
 }
 
 .tinder--card img {
-  border-radius: 100%;
-  width: 230px;
-  height: 230px;
-  background-size: cover;
-  margin-top: -100px;
-  pointer-events: none
+  min-width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+
 }
 
 .tinder--card--content {
   z-index: 10000;
-  bottom: 0px;
-  width: 100%;
+  bottom: 15px;
+  left: 30px;
   pointer-events: none;
   position: fixed;
-  padding: 100px 20px 20px 20px;
-  text-align: center;
+  text-align: start;
 }
 
 .tinder--buttons {
@@ -127,21 +123,10 @@
   border-radius: 50%;
   line-height: 60px;
   width: 60px;
-  border: 1px solid #cccccc;
+  border: 0;
   background: #FFFFFF;
   display: inline-block;
   margin: 0 8px;
-
-}
-
-.tinder--buttons {
-  #nope {
-    border-color: $light-blue;
-  }
-
-  #love {
-    border-color: $rose;
-  }
 }
 
 .tinder--buttons button:focus {
