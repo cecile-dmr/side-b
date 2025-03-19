@@ -9,7 +9,7 @@ export default class extends Controller {
     const csrf_token = document.querySelector('meta[name="csrf-token"]').content
 
     const dislike = (user_data) => {
-      const url = "http://localhost:3000/user_dislikes/"
+      const url = "/user_dislikes/"
       console.log("j'ai pô liké");
       fetch(url, {
         method: 'POST',
@@ -22,7 +22,7 @@ export default class extends Controller {
     }
 
     const like = (user_data) => {
-      const url = "http://localhost:3000/user_likes/"
+      const url = "/user_likes/"
       console.log("j'ai liké")
       fetch(url, {
         method: "POST",
