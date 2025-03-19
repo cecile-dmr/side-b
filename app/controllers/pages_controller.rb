@@ -3,6 +3,7 @@ require "discogs"
 class PagesController < ApplicationController
 
   def swipe
+    @user = current_user
     @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
   end
 
@@ -19,12 +20,16 @@ class PagesController < ApplicationController
   # end
 
   def update_radius
-    if current_user.update(search_radius: params[:search_radius])
-      flash[:notice] = "Rayon de recherche mis à jour !"
-      redirect_to root_path # Rediriger vers la vue principale
-    else
+    respond_to do |format|
+      format.json do
+        if current_user.update(search_radius: params[:radius])
+          flash[:notice] = "Rayon de recherche mis à jour !"
+          # redirect_to root_path # Rediriger vers la vue principale
+          render json: { message: "Rayon de recherche mis à jour !", search_radius: current_user.search_radius }, status: :ok
+        end
+      end
       flash[:alert] = "Erreur lors de la mise à jour."
-      redirect_to root_path
+      # redirect_to root_path
     end
   end
 
