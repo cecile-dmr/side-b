@@ -5,7 +5,7 @@
 </div> %>
 
 <div class="banner">
-  <img src="https://imgs.search.brave.com/JWELZm4_gqbCFz8yoc2Mw58QZKGcVbsYutxwylzi-WY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ5/MjM5MzM0NS92ZWN0/b3IvYXJ0aWZpY2lh/bC1pbnRlbGxpZ2Vu/Y2Utcm9ib3QtbG9n/by5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9Y0JEendNZDBi/dWlkTm5fOG1Wa0ww/bDhNVDdwMTRpTnJT/cmw2Zm5PLXFmYz0" alt="">
+  <h1>Side.B</h1>
 </div>
 
 
@@ -13,7 +13,8 @@
 <br>
 <div class='container', style="font-size: 15px; color: #c2c6fb;">
   <%= form_with url: update_radius_path, method: :patch, local: false do |f| %>
-  <%# <%= f.label :search_radius, "périmètre(km)" %>
+  <input type="range">
+  <%# <%= f.input :data, as: :range, input_html: { min: "0", max: "#{current_user.search_radius}", outinput: "updateTextInput(this.value)" } %>
   <div class="d-flex gap-3 align-items-center div-loc">
     <i class="fa-solid fa-location-dot"></i>
     <%= f.number_field :search_radius, min: 1, max: 100, step: 1,
@@ -30,7 +31,7 @@
     <i class="fa fa-heart"></i>
   </div>
 
-  <div class="tinder--cards"  data-controller="custom-swiper">
+  <div class="tinder--cards">
     <% @vinyles.each do |vinyle| %>
       <div class="tinder--card" data-action="click->custom-swiper#flip" data-custom-swiper-target="flipper" data-vinyl-id="<%= vinyle.id %>" data-user-id="<%= current_user.id %>">
         <img src="https://imgs.search.brave.com/jmOC4FN6dVo2FUyTHyaOInMaL07ioPf3nZa44RwA3FY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFiZWwtZW1tYXVz/LmNvL21lZGlhL2V4/dC8yNTB4MjUwX2Ny/b3B1cHNjYWxlL2Qx/a3Zmb3lyaWY2d3pn/LmNsb3VkZnJvbnQu/bmV0L2Fzc2V0cy9p/bWFnZXMvNTYvbWFp/bi82NGZkM2Y0MjRm/MDQ0NDQ5MmM3MjQ4/YjhhZWMwNDk2Nl8w/MGZiMGM2LmpwZWc" alt="">

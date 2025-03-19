@@ -15,7 +15,7 @@ class Vinyle < ApplicationRecord
   scope :not_liked_or_disliked_by, ->(user) {
 
     # retourne un array avec tous les users dans le périmètre
-    users_in_radius = User.near([user.latitude, user.longitude], user.search_radius) # tableau
+    users_in_radius = User.near([user.latitude, user.longitude], user.search_radius)
 
     users_id_in_radius = []
 
@@ -26,8 +26,7 @@ class Vinyle < ApplicationRecord
     # retourne tous les vinyles des users qui sont dans le périmètres
     # vinyles_in_radius = Vinyle.where(user_id: users_id_in_radius)
 
-
-    current_user_vinyles_ids = Vinyle.where(user_id: user)
+    current_user_vinyles_ids = Vinyle.where(user_id: user).pluck(:id)
     liked_ids = UserLike.where(user: user).pluck(:vinyle_id)
     disliked_ids = UserDislike.where(user: user).pluck(:vinyle_id)
     where(user_id: users_id_in_radius).where.not(id: liked_ids + disliked_ids + current_user_vinyles_ids)

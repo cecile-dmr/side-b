@@ -28,7 +28,7 @@ quality = ["Parfait", "Très bon", "Bon"]
 
 
 
-theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "Bauvin")
+theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "Lille")
 p theo
 cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Santes")
 p cecile
@@ -36,6 +36,8 @@ baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello", addr
 p baptiste
 aldjia = User.create!(email: "aldjia@mail.com", password: "hellohello", address: "Villeneuve-d'Ascq")
 p aldjia
+total = User.create!(email: "total@mail.com", password: "hellohello", address: "Lille")
+p total
 users = [theo, cecile, baptiste, aldjia]
 
 puts ENV["DISCOGS"]
