@@ -59,30 +59,32 @@ users.each do |user|
     release.images.nil? ? nil : release.images[0]
   end
 
-  release = nil
-  while release == nil
-    tmp_release = wrapper.get_release("#{rand(250000..300000)}")
-    release = tmp_release if release_as_photo?(tmp_release)
-  end
+  10.times do
 
+    release = nil
+    while release == nil
+      tmp_release = wrapper.get_release("#{rand(250000..300000)}")
+      release = tmp_release if release_as_photo?(tmp_release)
+    end
 
-  vinyle = Vinyle.new(
+    vinyle = Vinyle.new(
     title: release.title,
     artist: release.artists_sort,
     description: release.genres&.first || release.genres || release.genre || "Unknown",
     available: true,
     quality: quality.sample,
     year: release&.year || "2004",
-    user: user
-  )
-  photo = URI.parse(release.images[0].uri).open
-  vinyle.photo.attach(io: photo, filename: "#{vinyle.title}.jpeg", content_type: 'image/jpeg')
-  puts vinyle.valid?
-  if vinyle.valid?
-    vinyle.save!
-    puts "Created #{vinyle.title}"
-  else
-    puts "vinyle incomplet"
+    user: user)
+
+    photo = URI.parse(release.images[0].uri).open
+    vinyle.photo.attach(io: photo, filename: "#{vinyle.title}.jpeg", content_type: 'image/jpeg')
+    puts vinyle.valid?
+    if vinyle.valid?
+      vinyle.save!
+      puts "Created #{vinyle.title}"
+    else
+      puts "vinyle incomplet"
+    end
   end
 
   # Vinyle.create(
