@@ -10,6 +10,7 @@ gem 'geocoder'
 
 #installée par Aldjia
 gem "solid_cable", "~> 3.0.7"
+gem "cloudinary"
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
