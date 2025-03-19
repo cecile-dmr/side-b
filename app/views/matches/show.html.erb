@@ -1,10 +1,5 @@
-
-
 <div class="container position-relative mt-3">
   <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "position-absolute start-0 ms-3 z-3" %>
-</div>
-
-<%#= button_to "Valider", validate_match_path(@match), method: :patch, class: "btn btn-success position-absolute end-0 me-3 z-3" %>
 </div>
 
 <div class="vinyles-container">
@@ -17,12 +12,13 @@
 </div>
 
 <div class="container chat">
+<<<<<<< HEAD
   <h2>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h2>
+=======
+  <h3>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h3>
+>>>>>>> 2085528f80b37402356ab9b9461e42cf6e69b715
 
-
-
-
-    <%= turbo_stream_from :messages %>
+  <%= turbo_stream_from :messages %>
     <div id="messages" class="messages overflow-scroll">
       <% if @messages.any? %>
           <% @match.messages.each do |message| %>
@@ -30,16 +26,20 @@
           <% end %>
       <% end %>
     </div>
+
     <%= simple_form_for [@match, @message],
-      html: {class: "d-flex",
+      html: {class: "input-group",
       data: {controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f|
     %>
       <% other_user = current_user == @match.vinyle1.user ? @match.vinyle1.user : @match.vinyle2.user %>
       <%= f.input :content,
         label: false,
         placeholder: "Message #{other_user.email}",
-        wrapper_html: {class: "flex-grow-1"}
+        wrapper_html: {class: "form-control"}
       %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+
+      <%= button_tag(type: 'submit', class: 'input-group-text') do %>
+        <i class="fa fa-2xl fa-paper-plane"></i>
+      <% end %>
     <% end %>
 </div>

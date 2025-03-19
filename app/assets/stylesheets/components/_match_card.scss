@@ -53,12 +53,21 @@
   gap: 10px;
   padding: 10px;
   width: 100%;
+<<<<<<< HEAD
   max-width: 100vw;
+=======
+>>>>>>> 2085528f80b37402356ab9b9461e42cf6e69b715
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
-matches-bar::-webkit-scrollbar {
-  display: none;
+.matches-details {
+  .avatar {
+    background-size: cover;
+  }
+
+  a {
+    text-transform: capitalize;
+  }
 }

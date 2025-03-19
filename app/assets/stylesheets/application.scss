@@ -12,9 +12,10 @@
 @import "components/index";
 @import "pages/index";
 
-// body {
-//   padding: 60px 0
-// }
+body {
+  padding-bottom: 120px
+}
+
 input[type=file]::file-selector-button {
   color: white;
   background-color: #f1aead;
