@@ -1,27 +1,30 @@
 <div class="d-flex flex-column justify-content-between vh-100">
-  <div class="top-chat-page">
-    <div class="container position-relative mt-3 d-flex justify-content-between index">
-      <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 z-3" %>
+
+
+  <div class="top-chat-page mt-4">
+    <div class="container position-relative d-flex justify-content-between index">
+      
+      <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 mt-4 z-3" %>
       <%# Bouton exchange validate %>
       <button type="button" class="btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
         Valider l'échange
       </button>
       <%# Bouton exchange validate %>
     </div>
-    <div class="vinyles-container">
-      <div class="vinyle vinyle-left">
-        <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
-        <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
-      </div>
-      <div class="vinyle vinyle-right">
-        <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
-        <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
-      </div>
+  </div>
+
+  <div class="vinyles-container">
+    <div class="vinyle vinyle-left">
+      <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
+      <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
+    </div>
+    <div class="vinyle vinyle-right">
+      <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
+      <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
     </div>
   </div>
 
   <div class="container chat">
-    <h3>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h3>
 
     <%= turbo_stream_from :messages %>
       <div id="messages" class="messages overflow-scroll">
@@ -38,10 +41,10 @@
       %>
         <% other_user = current_user == @match.vinyle1.user ? @match.vinyle1.user : @match.vinyle2.user %>
         <%= f.input :content,
-          label: false,
-          placeholder: "Message #{other_user.email}",
-          wrapper_html: {class: "form-control"}
-        %>
+  label: false,
+  placeholder: "Organise l'échange...",
+  input_html: { class: "form-control", style: "height: 40px; width: 150px; font-size: 15px; font-family: Poppins;" },
+  wrapper_html: { class: "form-control" } %>
 
         <%= button_tag(type: 'submit', class: 'input-group-text') do %>
           <i class="fa fa-2xl fa-paper-plane"></i>
