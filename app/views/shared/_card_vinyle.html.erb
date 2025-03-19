@@ -1,0 +1,9 @@
+<% @vinyles.each do |vinyle| %>
+  <div class="tinder--card" data-action="click->custom-swiper#flip" data-custom-swiper-target="flipper" data-vinyl-id="<%= vinyle.id %>" data-user-id="<%= current_user.id %>">
+    <%= cl_image_tag vinyle.photo.key %>
+    <div class="tinder--card--content">
+      <h3><%= vinyle.title %></h3>
+      <p><%= vinyle.description %></p>
+    </div>
+  </div>
+<% end %>

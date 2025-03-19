@@ -23,3 +23,8 @@ input[type=file] {
 h1 {
   font-size: 60px;
 }
+
+input[type="range"] {
+  accent-color: $light-blue;
+  width: 70vw;
+}

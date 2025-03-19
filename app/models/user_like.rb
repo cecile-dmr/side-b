@@ -18,6 +18,7 @@ class UserLike < ApplicationRecord
         unless Match.where(vinyle1: self.vinyle, vinyle2: like.vinyle).exists? || Match.where(vinyle1: like.vinyle, vinyle2: self.vinyle).exists?
           Match.create!(vinyle1: self.vinyle, vinyle2: like.vinyle)
           #faire pop up la modal
+          
         end
       end
     end
