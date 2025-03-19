@@ -1,17 +1,20 @@
+.bg-blue {
+  background-color: $light-blue;
+}
+
 .container.chat {
-  height: calc(100vh - 115px);
+  // height: calc(100vh - 115px);
 }
 
 
 .chat {
-  background: $light-blue;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  position: fixed;
-  top: 115px;
-
+  // position: fixed;
+  // top: 115px;
+  max-height: 73vh;
   h2 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
@@ -77,6 +80,16 @@
   }
 }
 
+.top-chat-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  // position: fixed;
+
 .vinyles-container {
   z-index: 1;
   display: flex;
@@ -85,9 +98,16 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: $light-blue;
   padding-top: 16px;
   padding-bottom: 25px;
+}
+  
+.vinyles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
 }
 
 .vinyle {

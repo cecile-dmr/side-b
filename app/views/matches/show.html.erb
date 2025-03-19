@@ -1,42 +1,69 @@
-<div class="container position-relative mt-3">
-  <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "position-absolute start-0 ms-3 z-3" %>
-</div>
-
-<div class="vinyles-container">
-  <div class="vinyle vinyle-left">
-    <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
-    <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
-  </div>
-  <div class="vinyle vinyle-right">
-    <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
-    <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
-  </div>
-</div>
-
-<div class="container chat">
-
-  <%= turbo_stream_from :messages %>
-    <div id="messages" class="messages overflow-scroll">
-      <% if @messages.any? %>
-          <% @match.messages.each do |message| %>
-            <%= render "messages/message", message: message, user: current_user %>
-          <% end %>
-      <% end %>
+<div class="d-flex flex-column justify-content-between vh-100">
+  <div class="top-chat-page">
+    <div class="container position-relative mt-3 d-flex justify-content-between index">
+      <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 z-3" %>
+      <%# Bouton exchange validate %>
+      <button type="button" class="btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
+        Valider l'échange
+      </button>
+      <%# Bouton exchange validate %>
     </div>
+    <div class="vinyles-container">
+      <div class="vinyle vinyle-left">
+        <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
+        <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
+      </div>
+      <div class="vinyle vinyle-right">
+        <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
+        <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
+      </div>
+    </div>
+  </div>
 
-    <%= simple_form_for [@match, @message],
-      html: {class: "input-group",
-      data: {controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f|
-    %>
-      <% other_user = current_user == @match.vinyle1.user ? @match.vinyle1.user : @match.vinyle2.user %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message #{other_user.email}",
-        wrapper_html: {class: "form-control"}
+  <div class="container chat">
+    <h3>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h3>
+
+    <%= turbo_stream_from :messages %>
+      <div id="messages" class="messages overflow-scroll">
+        <% if @messages.any? %>
+            <% @match.messages.each do |message| %>
+              <%= render "messages/message", message: message, user: current_user %>
+            <% end %>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@match, @message],
+        html: {class: "input-group",
+        data: {controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f|
       %>
+        <% other_user = current_user == @match.vinyle1.user ? @match.vinyle1.user : @match.vinyle2.user %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Message #{other_user.email}",
+          wrapper_html: {class: "form-control"}
+        %>
 
-      <%= button_tag(type: 'submit', class: 'input-group-text') do %>
-        <i class="fa fa-2xl fa-paper-plane"></i>
+        <%= button_tag(type: 'submit', class: 'input-group-text') do %>
+          <i class="fa fa-2xl fa-paper-plane"></i>
+        <% end %>
       <% end %>
-    <% end %>
+  </div>
 </div>
+
+<%# TODO:  modal exchange validate %>
+<div id="validateModal" class="modal fade" tabindex="-1" aria-labelledby="matchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4" style="border-radius: 20px; background-color: #FFF2F3;">
+      <a href="<%= root_path %>" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></a>
+        <h1 style="font-size: 24px;">Side.B</h1>
+        <h1 style="font-size: 30px;" class="mb-2">L'échange est validé !</h1>
+        <p>Ajoute un autre vinyle ou continue d'échanger avec d'autres passionnés !</p>
+      <div class="d-flex justify-content-center">
+        <a href="<%= new_vinyle_path %>">
+        <button class="btn-lavandia" style="height: 40px; width: 150px; font-size: 15px; font-family: Poppins;">Ajouter un vinyle</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<%# TODO:  modal exchange validate %>

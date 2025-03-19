@@ -24,7 +24,7 @@
       />
   </head>
 
-  <body data-current-user-id="<%= current_user ? current_user.id : "" %>", class="margin-navbar">
+  <body data-current-user-id="<%= current_user ? current_user.id : "" %>", class="<%= params[:action] == 'show' && params[:controller] == 'matches' ? 'bg-blue' : 'margin-navbar'%>">
 
   <%= yield %>
 
