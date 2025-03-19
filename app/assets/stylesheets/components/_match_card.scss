@@ -53,12 +53,17 @@
   gap: 10px;
   padding: 10px;
   width: 100%;
-  max-width: 90vw;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
-matches-bar::-webkit-scrollbar {
-  display: none;
+.matches-details {
+  .avatar {
+    background-size: cover;
+  }
+
+  a {
+    text-transform: capitalize;
+  }
 }

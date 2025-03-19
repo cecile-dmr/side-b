@@ -1,0 +1,24 @@
+#new_message {
+  background-color: white;
+  border-radius: 10cap;
+  box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 5px;
+  margin-bottom: 24px;
+
+  .message_content {
+    margin-bottom: 0 !important;
+    border: 0;
+    background: none;
+
+    input {
+      border: 0 !important;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  button {
+    border: 0;
+    background: none;
+  }
+}
