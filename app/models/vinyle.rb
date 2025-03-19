@@ -15,7 +15,6 @@ class Vinyle < ApplicationRecord
   # TODO : Available
 
   scope :not_liked_or_disliked_by, ->(user) {
-
     # retourne un array avec tous les users dans le périmètre
     users_in_radius = User.near([user.latitude, user.longitude], user.search_radius)
 

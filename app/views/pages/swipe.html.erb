@@ -1,10 +1,3 @@
-<%# TODO named controller %>
-<%# <div id="splash-screen" class="splash-screen d-flex flex-column">
-  <h1>Side.B</h1>
-  <p>Loading...</p>
-</div> %>
-
-
 <div class="banner">
   <h1>Side.B</h1>
 </div>
@@ -14,26 +7,14 @@
   Tester la modale
 </button>
 
-
-
  <%# FORMULAIRE POUR CHANGER LE PERIMETRE DE RECHERCHE %>
-<div data-controller="range">
-  <input type="range" id="range_search_radius" min="0" max="50" value="<%= current_user.search_radius%>"
-        data-action="input->range#update"
-        data-user-id="<%= current_user.id %>">
+<div class="text-center" data-controller="range">
+  <input type="range" id="range_search_radius" min="0" max="50" value="<%= current_user.search_radius %>"
+        data-action="change->range#update input->range#count"
+        data-user-id="<%= current_user.id %>"
+        >
+  <p><span data-range-target="count"><%= current_user.search_radius %></span> km</p>
 </div>
-
-<div class='container', style="font-size: 15px; color: #c2c6fb;">
-  <%= form_with url: update_radius_path, method: :patch, local: false do |f| %>
-  <div class="d-flex gap-3 align-items-center div-loc">
-    <i class="fa-solid fa-location-dot"></i>
-    <%= f.number_field :search_radius, min: 1, max: 100, step: 1,
-        value: current_user.search_radius.presence, placeholder: "- périmètre de la recherche (km) défaut:50 -", class:'field-loc' %>
-    <%= f.submit "Valider", class: 'btn-loc' %>
-  </div>
-  <% end %>
-</div>
-
 
 <div class="tinder" data-controller="custom-swiper">
   <div class="tinder--status">
@@ -42,15 +23,7 @@
   </div>
 
   <div class="tinder--cards">
-    <% @vinyles.each do |vinyle| %>
-      <div class="tinder--card" data-action="click->custom-swiper#flip" data-custom-swiper-target="flipper" data-vinyl-id="<%= vinyle.id %>" data-user-id="<%= current_user.id %>">
-        <%= cl_image_tag vinyle.photo.key %>
-        <div class="tinder--card--content">
-          <h3><%= vinyle.title %></h3>
-          <p><%= vinyle.description %></p>
-        </div>
-      </div>
-    <% end %>
+    <%= render "shared/card_vinyle" %>
   </div>
 
   <div class="tinder--buttons">

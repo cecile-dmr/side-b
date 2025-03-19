@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def swipe
     @user = current_user
-    @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
+    @vinyles = Vinyle.not_liked_or_disliked_by(current_user).shuffle
   end
 
   # def swipe
@@ -23,9 +23,14 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.json do
         if current_user.update(search_radius: params[:radius])
+          @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
           flash[:notice] = "Rayon de recherche mis à jour !"
           # redirect_to root_path # Rediriger vers la vue principale
-          render json: { message: "Rayon de recherche mis à jour !", search_radius: current_user.search_radius }, status: :ok
+            render json: {
+            message: "Rayon de recherche mis à jour !",
+            search_radius: current_user.search_radius,
+            cards: render_to_string(partial: "shared/card_vinyle", collection: @vinyles, as: :vinyles, formats: [:html])
+            }, status: :ok
         end
       end
       flash[:alert] = "Erreur lors de la mise à jour."
@@ -63,3 +68,13 @@ class PagesController < ApplicationController
   #   vinyle = Vinyle.find()
   # end
 end
+
+
+
+# <div class="tinder--card" data-action="click->custom-swiper#flip" data-custom-swiper-target="flipper" data-vinyl-id="353" data-user-id="157">
+#   <img src="https://res.cloudinary.com/dta7kinov/image/upload/v1/development/tpdisj37rby4p2rlwlyo58rcg5bh?_a=BACAEuEv">
+#   <div class="tinder--card--content">
+#     <h3>From Here To Eternity</h3>
+#     <p>Electronic</p>
+#   </div>
+# </div>
