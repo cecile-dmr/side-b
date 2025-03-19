@@ -4,7 +4,7 @@
 
   <div class="vinyle-card mb-5 pb-5">
     <div class="vinyle-image-container">
-      <%= image_tag "vinyl-record.png", class: "vinyle-image" %>
+      <%= cl_image_tag @vinyle.photo.key, class: "vinyle-image" %>
     </div>
     <div><h1><%= @vinyle.title %> - <%= @vinyle.artist %></h1></div>
     <div class="container d-flex justify-content-start">

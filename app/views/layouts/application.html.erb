@@ -41,5 +41,6 @@
     <% unless user_signed_in? && (request.path == '/matches' || request.path.match?(/^\/matches\/\d+$/)) %>
       <%= render "shared/navbar" %>
     <% end %>
+    <% console %>
   </body>
 </html>

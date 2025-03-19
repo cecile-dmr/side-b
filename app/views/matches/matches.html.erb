@@ -9,8 +9,8 @@
   <div class="matches-bar">
     <% @matches.each_with_index do |match, index| %>
       <%= link_to match do %>
-        <div class="match-bubble" style="background-image: url('<%= asset_path "vinyles/#{index}.jpg" %>');">
-        </div>
+        <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
+        <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
       <% end %>
     <% end %>
   </div>

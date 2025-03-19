@@ -5,6 +5,8 @@ class Vinyle < ApplicationRecord
   has_many :user_likes
   has_many :user_dislikes
 
+  has_one_attached :photo
+
   validates :quality, :presence => true
   validates :description, presence: { message: "Ne peut pas être vide" }
   validates :title, presence: { message: "Ne peut être vide"}
