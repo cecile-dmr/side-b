@@ -15,9 +15,9 @@ export default class extends Controller {
         setTimeout(() => {
           clearInterval(addPoints)
           this.loadingTarget.innerText = element
-        }, 1000);
+        }, 350);
 
-      }, 1000);
+      }, 350);
 
       setTimeout(() => {
         clearInterval(loop)
@@ -25,7 +25,7 @@ export default class extends Controller {
         setTimeout(() => {
           this.element.remove()
         }, 1500);
-      }, secondes * 1000);
+      }, secondes * 350);
     }
     animation(2.5)
   }

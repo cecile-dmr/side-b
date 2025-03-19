@@ -3,7 +3,7 @@
 
   <div class="top-chat-page mt-4">
     <div class="container position-relative d-flex justify-content-between index">
-      
+
       <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 mt-4 z-3" %>
       <%# Bouton exchange validate %>
       <button type="button" class="btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
@@ -13,14 +13,15 @@
     </div>
   </div>
 
+  <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
+  <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
+
   <div class="vinyles-container">
     <div class="vinyle vinyle-left">
-      <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
-      <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
+      <%= link_to cl_image_tag(other_vinyle.photo.key, class: "match-bubble"), profile_path(my_vinyle.user_id) %>
     </div>
     <div class="vinyle vinyle-right">
-      <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
-      <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
+      <%= link_to cl_image_tag(my_vinyle.photo.key, class: "match-bubble"), profile_path(other_vinyle.user_id) %>
     </div>
   </div>
 

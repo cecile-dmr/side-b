@@ -5,7 +5,7 @@
   </div>
 
   <div class="profile row justify-content-center baseline">
-    <% username = current_user.email.split('@').first %>
+    <% username = @user.email.split('@').first %>
 
     <%= image_tag asset_path("users/#{username}.jpg"), class:"avatar-large", alt:"User profile" %>
     <h1 class="text-center mt-2 text-capitalize"><%= username %></h1>

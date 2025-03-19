@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = current_user
-    @vinyles = current_user.vinyles
+    @user = User.find(params[:id])
+    @vinyles = @user.vinyles
   end
 end
