@@ -56,7 +56,7 @@ users.each do |user|
 
   puts "Création d'un vinyle"
   def release_as_photo?(release)
-    release.images[0]
+    release.images.nil? ? nil : release.images[0]
   end
 
   release = nil
