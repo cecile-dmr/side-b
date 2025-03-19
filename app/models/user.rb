@@ -18,5 +18,4 @@ class User < ApplicationRecord
   def set_radius
     self.search_radius = 50
   end
-
 end
