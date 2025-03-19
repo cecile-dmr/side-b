@@ -11,7 +11,7 @@
       <%= f.input :year, placeholder: "Année", label: false, input_html: { class: 'form-field mb-4' } %>
       <%= f.input :description, placeholder: "Description", label: false, input_html: { class: 'form-field mb-4' } %>
 
-      <%= f.input :avatar, as: :file, input_html: { class: 'form-field mb-4' }, label: false %>
+      <%= f.input :photo, as: :file, input_html: { class: 'form-field mb-4', accept: "image/png,image/jpeg,image/jpg" }, label: false %>
       <%= f.input :quality, as: :radio_buttons, collection: [['Neuf', 'Neuf'] ,['Occasion', 'Occasion']], label_method: :second, value_method: :first, label: false, wrapper: :horizontal_collection_inline %>
 
       <div class='d-flex justify-content-center mt-5 gap-4'>
