@@ -4,15 +4,16 @@
 
 <div class="vinyles-container">
   <div class="vinyle vinyle-left">
-    <%= image_tag "vinyl1.png", alt: "Vinyle 1", class: "vinyle-img" %>
+    <% other_vinyle = @match.vinyle1.user != current_user ? @match.vinyle1 : @match.vinyle2 %>
+    <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
   </div>
   <div class="vinyle vinyle-right">
-    <%= image_tag "vinyl-record.png", alt: "Vinyle 2", class: "vinyle-img" %>
+    <% my_vinyle = @match.vinyle1.user == current_user ? @match.vinyle1 : @match.vinyle2 %>
+    <%= cl_image_tag my_vinyle.photo.key, class:"match-bubble" %>
   </div>
 </div>
 
 <div class="container chat">
-  <h3>Ton match <%= @match.vinyle1.title %>/<%= @match.vinyle2.title %></h3>
 
   <%= turbo_stream_from :messages %>
     <div id="messages" class="messages overflow-scroll">

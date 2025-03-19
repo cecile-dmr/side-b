@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
+require "open-uri"
 require "discogs"
 
 Message.destroy_all
@@ -17,6 +17,7 @@ UserDislike.destroy_all
 puts "Cleaning user dislikes..."
 Match.destroy_all
 puts "Cleaning matches..."
+Vinyle.all{ |vinyle| vinyle.photo.purge }
 Vinyle.destroy_all
 puts "Cleaning vinyles..."
 User.destroy_all
@@ -43,18 +44,28 @@ users = [theo, cecile, baptiste, aldjia]
 puts ENV["DISCOGS"]
 users.each do |user|
 
-  Vinyle.create(
-    title: "#{user.email} vinyle",
-    artist: 'artiste',
-    description: "description",
-    available: true,
-    quality: "super",
-    year: "2004",
-    user: user
-  )
+  # Vinyle.create(
+  #   title: "#{user.email} vinyle",
+  #   artist: 'artiste',
+  #   description: "description",
+  #   available: true,
+  #   quality: "super",
+  #   year: "2004",
+  #   user: user
+  # )
 
   puts "Création d'un vinyle"
-  release = wrapper.get_release("#{rand(250000..300000)}")
+  def release_as_photo?(release)
+    release.images[0]
+  end
+
+  release = nil
+  while release == nil
+    tmp_release = wrapper.get_release("#{rand(250000..300000)}")
+    release = tmp_release if release_as_photo?(tmp_release)
+  end
+
+
   vinyle = Vinyle.new(
     title: release.title,
     artist: release.artists_sort,
@@ -64,6 +75,8 @@ users.each do |user|
     year: release&.year || "2004",
     user: user
   )
+  photo = URI.parse(release.images[0].uri).open
+  vinyle.photo.attach(io: photo, filename: "#{vinyle.title}.jpeg", content_type: 'image/jpeg')
   puts vinyle.valid?
   if vinyle.valid?
     vinyle.save!
@@ -72,15 +85,15 @@ users.each do |user|
     puts "vinyle incomplet"
   end
 
-  Vinyle.create(
-    title: "#{user.email} vinyle 2",
-    artist: 'artiste',
-    description: "description",
-    available: true,
-    quality: "super",
-    year: "2004",
-    user: user
-  )
+  # Vinyle.create(
+  #   title: "#{user.email} vinyle 2",
+  #   artist: 'artiste',
+  #   description: "description",
+  #   available: true,
+  #   quality: "super",
+  #   year: "2004",
+  #   user: user
+  # )
 
 end
 
@@ -102,24 +115,24 @@ puts "Création des likes..."
 
 
 UserLike.create!(user: theo, vinyle: aldjia.vinyles.first)
-UserLike.create!(user: aldjia, vinyle: theo.vinyles.first)
+# UserLike.create!(user: aldjia, vinyle: theo.vinyles.first)
 
-UserLike.create!(user: theo, vinyle: aldjia.vinyles.last)
-UserLike.create!(user: aldjia, vinyle: theo.vinyles.last)
+# UserLike.create!(user: theo, vinyle: aldjia.vinyles.last)
+# UserLike.create!(user: aldjia, vinyle: theo.vinyles.last)
 
 
 
 UserLike.create!(user: cecile, vinyle: aldjia.vinyles.first)
-UserLike.create!(user: aldjia, vinyle: cecile.vinyles.first)
+# UserLike.create!(user: aldjia, vinyle: cecile.vinyles.first)
 
-UserLike.create!(user: cecile, vinyle: aldjia.vinyles.last)
-UserLike.create!(user: aldjia, vinyle: cecile.vinyles.last)
+# UserLike.create!(user: cecile, vinyle: aldjia.vinyles.last)
+# UserLike.create!(user: aldjia, vinyle: cecile.vinyles.last)
 
 UserLike.create!(user: baptiste, vinyle: aldjia.vinyles.first)
-UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.first)
+# UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.first)
 
 UserLike.create!(user: baptiste, vinyle: aldjia.vinyles.last)
-UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.last)
+# UserLike.create!(user: aldjia, vinyle: baptiste.vinyles.last)
 
-puts UserLike.count
-puts Match.count
+# puts UserLike.count
+# puts Match.count
