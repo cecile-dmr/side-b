@@ -6,18 +6,21 @@ class UserLike < ApplicationRecord
 
   def verify_match
     vinyle.user.user_likes.each do |like|
-      if user == like.vinyle.user
-        unless Match.where(vinyle1: self.vinyle, vinyle2: like.vinyle).exists? || Match.where(vinyle1: like.vinyle, vinyle2: self.vinyle).exists?
-          match = Match.create!(vinyle1: self.vinyle, vinyle2: like.vinyle)
+      next unless user == like.vinyle.user || Match.pair(vinyle, like.vinyle)
 
-          Turbo::StreamsChannel.broadcast_replace_to(
-            "user_#{user.id}",
-            target: "match_modal",
-            partial: "shared/match_modal",
-            locals: { match: match }
-          )
-        end
-      end
+      match = Match.create!(vinyle1: vinyle, vinyle2: like.vinyle)
+      broadcast_match(user, match)
     end
+  end
+
+  private
+
+  def broadcast_match(user, match)
+    Turbo::StreamsChannel.broadcast_replace_to(
+      "user_#{user.id}",
+      target: "match_modal",
+      partial: "shared/match_modal",
+      locals: { match: match }
+    )
   end
 end
