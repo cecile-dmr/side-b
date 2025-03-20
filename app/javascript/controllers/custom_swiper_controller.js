@@ -2,10 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 import Hammer from "hammerjs";
 // Connects to data-controller="custom-swiper"
 export default class extends Controller {
-  static targets = [ "flipper" ]
+  static targets = [ "flipper", "button" ]
 
   connect() {
-
     const csrf_token = document.querySelector('meta[name="csrf-token"]').content
 
     const dislike = (user_data) => {
@@ -34,6 +33,12 @@ export default class extends Controller {
       })
       console.log(user_data)
     }
+
+    // const modal = document.getElementById("matchModal")
+    // if (modal) {
+    //   modal.style.display = "block"
+    //   modal.querySelector(".close").onclick = () => (modal.style.display = "none")
+    // }
 
     var tinderContainer = document.querySelector('.tinder');
     var allCards = document.querySelectorAll('.tinder--card');
@@ -174,6 +179,9 @@ export default class extends Controller {
   }
 
 
+  close() {
+    this.buttonTarget.remove()
+  }
   // flip() {
   //   this.flipperTarget.classList.toggle("flip");
   // }
