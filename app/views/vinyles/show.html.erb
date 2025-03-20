@@ -1,5 +1,8 @@
 <div class="container">
-  <%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path(current_user), class: "position-absolute start-0 ms-3" %>
+  <%= link_to profile_path(current_user), class: "position-absolute start-0 ms-3 z-index-absolute" do %>
+   <%= image_tag("back.png", width: "40px", height: "40px") %>
+  <% end %>
+
 
   <div class="container position-relative mt-3 d-flex flex-column gap-5">
 
@@ -19,8 +22,10 @@
 </div>
 
 <div class="button-container d-flex justify-content-center gap-4">
-  <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
-  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+  <% if @vinyle.user == current_user %>
+    <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
+    <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+  <% end %>
 </div>
 
 </div>

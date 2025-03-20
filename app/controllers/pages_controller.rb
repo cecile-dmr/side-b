@@ -11,8 +11,7 @@ class PagesController < ApplicationController
       format.json do
         if current_user.update(search_radius: params[:radius])
           @vinyles = Vinyle.not_liked_or_disliked_by(current_user).shuffle
-          render json: {
-            message: "Rayon de recherche mis à jour !",
+            render json: {
             search_radius: current_user.search_radius,
             cards: render_to_string(partial: "shared/card_vinyle", collection: @vinyles, as: :vinyles, formats: [:html]),
             show_modal: true # la modal devient true
