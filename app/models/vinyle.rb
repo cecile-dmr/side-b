@@ -1,9 +1,9 @@
 class Vinyle < ApplicationRecord
   belongs_to :user
-  has_many :primary_vinyles, class_name: "Vinyle", foreign_key: "vinyle1_id"
-  has_many :secondary_vinyles, class_name: "Vinyle", foreign_key: "vinyle2_id"
-  has_many :user_likes
-  has_many :user_dislikes
+  has_many :primary_vinyles, class_name: "Match", foreign_key: "vinyle1_id", dependent: :destroy
+  has_many :secondary_vinyles, class_name: "Match", foreign_key: "vinyle2_id", dependent: :destroy
+  has_many :user_likes, dependent: :destroy
+  has_many :user_dislikes, dependent: :destroy
 
   has_one_attached :photo
   # validates :photo, content_type: ['image/png', 'image/jpg', 'image/jpeg']

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_20_091216) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_20_151135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -124,8 +124,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_20_091216) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "matches", "vinyles", column: "vinyle1_id"
-  add_foreign_key "matches", "vinyles", column: "vinyle2_id"
+  add_foreign_key "matches", "vinyles", column: "vinyle1_id", on_delete: :cascade
+  add_foreign_key "matches", "vinyles", column: "vinyle2_id", on_delete: :cascade
   add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
   add_foreign_key "user_dislikes", "users"

@@ -35,6 +35,7 @@ class VinylesController < ApplicationController
 
   def destroy
     @vinyle = Vinyle.find(params[:id])
+    
     @vinyle.destroy
     redirect_to profile_path(current_user)
   end
@@ -54,5 +55,5 @@ class VinylesController < ApplicationController
       redirect_to root_path, alert: "Tu n'as pas l'autorisation d'effectuer cette action."
     end
   end
-  
+
 end
