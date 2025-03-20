@@ -4,7 +4,7 @@
 </div>
 
 <% if @matches.any? %>
-  <h2 class= 'text-center'>Nouveaux échanges</h2>
+  <h2 class= "text-start mt-4 ms-2" style="font-size: 16px; font-style: italic;">Nouveaux échanges</h2>
 
   <div class="matches-bar">
   <% @matchs_no_messages = @matches.reject {|match| match.messages.any?} %>
@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <h3 class='text-center'>Messages</h3>
+  <h2 class="text-start mt-4 mb-3 ms-2" style="font-size: 16px; font-style: italic;">Messages</h2>
 
   <div class="matches-details container d-grid gap-3">
 

@@ -2,11 +2,11 @@
 
 
   <div class="top-chat-page mt-4">
-    <div class="container position-relative d-flex justify-content-between index">
+    <div class="container position-relative d-flex justify-content-between index p-2">
 
-      <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 mt-4 z-3" %>
+      <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 z-3" %>
       <%# Bouton exchange validate %>
-      <button type="button" class="btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
+      <button type="button" class="me-3 btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
         Valider l'échange
       </button>
       <%# Bouton exchange validate %>
@@ -48,7 +48,7 @@
         <%= f.input :content,
   label: false,
   placeholder: "Organise l'échange...",
-  input_html: { class: "form-control", style: "height: 40px; width: 100%; font-size: 15px; font-family: Poppins;" },
+  input_html: { class: "form-control", style: "height: 20px; width: 100%; font-size: 15px; font-family: Poppins; font-style: italic;" },
   wrapper_html: { class: "form-control" } %>
 
 

@@ -16,13 +16,12 @@
   <div class="profile-card">
     <% @vinyles.each do |vinyle| %>
     <%= link_to vinyle_path(vinyle) do %>
-          <div class="vinyles-card d-flex justify-content-between align-items-center mb-4">
+          <div class="vinyles-card d-flex justify-content-between align-items-center mb-4 me-3">
             <%= cl_image_tag vinyle.photo.key, class:"avatar", alt:"image-vinyles" %>
             <div class="vinyle-info">
               <h2><%= vinyle.title %></h2>
               <p><%= vinyle.description %></p>
             </div>
-            <div class="container m-0 d-flex align-items-center justify-content-center pastille">3</div>
           </div>
         <% end %>
       <% end %>
