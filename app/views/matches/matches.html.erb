@@ -7,7 +7,8 @@
   <h2 class= "text-start mt-4 ms-2" style="font-size: 16px; font-style: italic;">Nouveaux échanges</h2>
 
   <div class="matches-bar">
-    <% @matches.each_with_index do |match, index| %>
+  <% @matchs_no_messages = @matches.reject {|match| match.messages.any?} %>
+    <% @matchs_no_messages.each_with_index do |match, index| %>
       <%= link_to match do %>
         <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
         <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
@@ -18,17 +19,24 @@
   <h2 class="text-start mt-4 mb-3 ms-2" style="font-size: 16px; font-style: italic;">Messages</h2>
 
   <div class="matches-details container d-grid gap-3">
-    <% @matches.each do |match| %>
+
+  <% @matches_messages = @matches.select {|match| match.messages.any?} %>
+
+    <% @matches_messages.each do |match| %>
       <%= link_to match do %>
         <div class="d-flex align-items-center">
 
-          <% username = match.vinyle1.user.email.split('@').first %>
+          <% vinyle = current_user == match.vinyle1.user ? match.vinyle2 : match.vinyle1 %>
+          <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
+          <% username = vinyle.user.email.split('@').first %>
 
-          <div class="avatar" style="background-image: url('<%= asset_path "users/#{username}.jpg" %>');"></div>
+          <div class="avatar">
+            <%= cl_image_tag other_vinyle.photo.key, class:"avatar" %>
+          </div>
 
           <div class="d-flex flex-column ms-2">
             <p class="fw-bold mb-0"><%= username %></p>
-            <p>
+            <p class='mb-0'>
               <%= match.messages.last.content if match.messages.any? %>
             </p>
           </div>
