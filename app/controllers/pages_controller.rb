@@ -24,16 +24,13 @@ class PagesController < ApplicationController
       format.json do
         if current_user.update(search_radius: params[:radius])
           @vinyles = Vinyle.not_liked_or_disliked_by(current_user)
-          flash[:notice] = "Rayon de recherche mis à jour !"
           # redirect_to root_path # Rediriger vers la vue principale
             render json: {
-            message: "Rayon de recherche mis à jour !",
             search_radius: current_user.search_radius,
             cards: render_to_string(partial: "shared/card_vinyle", collection: @vinyles, as: :vinyles, formats: [:html])
             }, status: :ok
         end
       end
-      flash[:alert] = "Erreur lors de la mise à jour."
       # redirect_to root_path
     end
   end
