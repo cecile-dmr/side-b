@@ -1,7 +1,7 @@
 <div class="container position-relative mt-3">
 
 
-<%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path, class: "position-relative start-0 ms-3" %>
+<%= link_to image_tag("back.png", width: "40px", height: "40px"), profile_path(current_user), class: "position-relative start-0 ms-3" %>
 
   <div class="container">
     <h1 class='mt-5 mb-4' style="font-size: 40px;">Modifie ton Vinyle</h1>
@@ -15,7 +15,7 @@
       <%= f.input :quality, as: :radio_buttons, collection: [['Neuf', 'Neuf'] ,['Occasion', 'Occasion']], label_method: :second, value_method: :first, label: false, wrapper: :horizontal_collection_inline %>
 
       <div class='d-flex justify-content-center mt-5 gap-4'>
-      <%= link_to "Annuler", profile_path, class: "btn btn-lightred" %>
+      <%= link_to "Annuler", profile_path(current_user), class: "btn btn-lightred" %>
       <%= f.submit value: "Valider", class:'btn-lavandia'%>
       </div>
     <% end %>
