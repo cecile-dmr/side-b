@@ -7,7 +7,8 @@
   <h2 class= 'text-center'>Nouveaux échanges</h2>
 
   <div class="matches-bar">
-    <% @matches.each_with_index do |match, index| %>
+  <% @matchs_no_messages = @matches.reject {|match| match.messages.any?} %>
+    <% @matchs_no_messages.each_with_index do |match, index| %>
       <%= link_to match do %>
         <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
         <%= cl_image_tag other_vinyle.photo.key, class:"match-bubble" %>
@@ -18,14 +19,17 @@
   <h3 class='text-center'>Messages</h3>
 
   <div class="matches-details container d-grid gap-3">
-    <% @matches.each do |match| %>
 
+  <% @matches_messages = @matches.select {|match| match.messages.any?} %>
+
+    <% @matches_messages.each do |match| %>
       <%= link_to match do %>
         <div class="d-flex align-items-center">
 
+          <% vinyle = current_user == match.vinyle1.user ? match.vinyle2 : match.vinyle1 %>
           <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
-          <% username = match.vinyle1.user.email.split('@').first %>
-          <%# <%= cl_image_tag other_vinyle.photo.key, class:"avatar-large", alt:"User profile" %>
+          <% username = vinyle.user.email.split('@').first %>
+
           <div class="avatar">
             <%= cl_image_tag other_vinyle.photo.key, class:"avatar" %>
           </div>
