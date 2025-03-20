@@ -28,8 +28,6 @@
 
   <%= yield %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <% unless request.env["HTTP_REFERER"] %>
       <div id="splash-screen" class="splash-screen d-flex flex-column" data-controller="splash-screen">
