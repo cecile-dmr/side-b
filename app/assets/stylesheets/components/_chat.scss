@@ -8,6 +8,7 @@
   justify-content: space-between;
   flex-grow: 1;
   max-height: 73vh;
+  overflow: hidden;
   h2 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
@@ -50,7 +51,7 @@
     border-radius: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
-    max-width: 70%;
+    // max-width: 70%;
     width: fit-content;
     word-wrap: break-word;
   }
@@ -64,6 +65,7 @@
   .message.sent .message-content {
     background: $blue;
     color: $light-gray;
+    width: 80%;
   }
 
   .message.received {
@@ -82,5 +84,5 @@
   flex-direction: column;
   position: relative;
   margin-bottom: 20px;
-  overflow: hidden;
+  // overflow: hidden;
 }
