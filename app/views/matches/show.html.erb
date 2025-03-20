@@ -27,7 +27,7 @@
 
   <div class="container chat">
 
-    <%= turbo_stream_from :messages %>
+    <%= turbo_stream_from "match_#{@match.id}_messages" %>
       <div id="messages" class="messages overflow-scroll">
         <% if @messages.any? %>
             <% @match.messages.each do |message| %>

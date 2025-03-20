@@ -11,7 +11,7 @@ gem 'geocoder'
 #installée par Aldjia
 gem "solid_cable", "~> 3.0.7"
 gem "cloudinary"
-
+gem "actioncable-enhanced-postgresql-adapter"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
