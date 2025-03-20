@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  # devise_for :users
 
   root to: "pages#swipe"
+
+
 
   resources :profiles, only: [:show]
   # get "/profile/:id", to: "profiles#show", as: "profile"
