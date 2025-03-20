@@ -1,0 +1,35 @@
+<%# TODO:  modal match %>
+<%= turbo_frame_tag "match_modal" do %>
+
+  <div id="matchModal" class="modal fade show d-block" tabindex="-1" aria-labelledby="matchModalLabel" data-custom-swiper-target="button">
+    <div class="modal-dialog modal-dialog-centered show">
+      <div class="modal-content text-center p-4" style="border-radius: 20px; background-color: #FFF2F3;">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal hide" aria-label="Close" data-action="click->custom-swiper#close"></button>
+        <h1 style="font-size: 24px;">Side.B</h1>
+
+          <div class="modal-vinyles-container">
+            <div class="vinyle vinyle-left">
+              <%= image_tag "vinyl1.png", alt: "Vinyle 1", class: "vinyle-img" %>
+            </div>
+            <div class="vinyle vinyle-right">
+              <%= image_tag "vinyl-record.png", alt: "Vinyle 2", class: "vinyle-img" %>
+            </div>
+          </div>
+
+        <h1 style="font-size: 30px;" class="mb-2">Le groove est lancé !</h1>
+
+        <p>Envoie un message pour échanger ton vinyle et discuter entre passionnés !</p>
+        <div class="input-group mt-3">
+          <input type="text" class="form-control rounded-left" placeholder="Organise l’échange.." aria-label="Organise l’échange.." style="height: 30px; font-size: 15px; font-style: italic; font-family: Poppins">
+          <%= button_tag(type: 'submit', class: 'input-group-text', style: 'background: #859cd2' ) do %>
+            <i class="fa fa-sm fa-paper-plane"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+<%# <p>kjkrjfkjrnfkjrnfkjrnf</p> %>
