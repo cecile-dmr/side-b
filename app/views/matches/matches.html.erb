@@ -19,6 +19,7 @@
   <h3 class='text-center'>Messages</h3>
 
   <div class="matches-details container d-grid gap-3">
+
   <% @matches_messages = @matches.select {|match| match.messages.any?} %>
 
     <% @matches_messages.each do |match| %>
@@ -26,9 +27,12 @@
         <div class="d-flex align-items-center">
 
           <% vinyle = current_user == match.vinyle1.user ? match.vinyle2 : match.vinyle1 %>
+          <% other_vinyle = match.vinyle1.user != current_user ? match.vinyle1 : match.vinyle2 %>
           <% username = vinyle.user.email.split('@').first %>
 
-          <div class="avatar" style="background-image: url('<%= asset_path "users/#{username}.jpg" %>');"></div>
+          <div class="avatar">
+            <%= cl_image_tag other_vinyle.photo.key, class:"avatar" %>
+          </div>
 
           <div class="d-flex flex-column ms-2">
             <p class="fw-bold mb-0"><%= username %></p>
