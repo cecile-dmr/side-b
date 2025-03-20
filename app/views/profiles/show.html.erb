@@ -5,9 +5,9 @@
   </div>
 
   <div class="profile row justify-content-center baseline">
-    <% username = @user.email.split('@').first %>
-
-    <%= image_tag asset_path("users/#{username}.jpg"), class:"avatar-large", alt:"User profile" %>
+    <%# <% username = @user.email.split('@').first %>
+    <% username = @user.nickname %>
+    <%= cl_image_tag @user.photo.key, class:"avatar-large", alt:"User profile" %>
     <h1 class="text-center mt-2 text-capitalize"><%= username %></h1>
   </div>
 

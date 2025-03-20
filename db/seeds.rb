@@ -20,6 +20,7 @@ puts "Cleaning matches..."
 Vinyle.all{ |vinyle| vinyle.photo.purge }
 Vinyle.destroy_all
 puts "Cleaning vinyles..."
+User.all{ |user| user.photo.purge }
 User.destroy_all
 puts "Cleaning users..."
 
@@ -29,16 +30,23 @@ quality = ["Parfait", "Très bon", "Bon"]
 
 
 
-theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "Lille")
+theo = User.create!(email: "theo@mail.com", password: "hellohello", address: "Lille", nickname: "Théo")
+photo = URI.parse("https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=2578&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+theo.photo.attach(io: photo, filename: "#{theo.nickname}.jpeg", content_type: 'image/jpeg')
 p theo
-cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Santes")
+cecile = User.create!(email: "cecile@mail.com", password: "hellohello", address: "Santes", nickname: "Cécile")
+photo = URI.parse("https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+cecile.photo.attach(io: photo, filename: "#{cecile.nickname}.jpeg", content_type: 'image/jpeg')
 p cecile
-baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello", address: "Marcq-en-Baroeul")
+baptiste = User.create!(email: "baptiste@mail.com", password: "hellohello", address: "Marcq-en-Baroeul", nickname: "Baptiste")
+photo = URI.parse("https://images.unsplash.com/photo-1635107510862-53886e926b74?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+baptiste.photo.attach(io: photo, filename: "#{baptiste.nickname}.jpeg", content_type: 'image/jpeg')
 p baptiste
-aldjia = User.create!(email: "aldjia@mail.com", password: "hellohello", address: "Villeneuve-d'Ascq")
+aldjia = User.create!(email: "aldjia@mail.com", password: "hellohello", address: "Villeneuve-d'Ascq", nickname: "Aldjia")
+photo = URI.parse("https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+aldjia.photo.attach(io: photo, filename: "#{aldjia.nickname}.jpeg", content_type: 'image/jpeg')
 p aldjia
-total = User.create!(email: "total@mail.com", password: "hellohello", address: "Lille")
-p total
+
 users = [theo, cecile, baptiste, aldjia]
 
 puts ENV["DISCOGS"]
@@ -59,7 +67,7 @@ users.each do |user|
     release.images.nil? ? nil : release.images[0]
   end
 
-  10.times do
+  5.times do
 
     release = nil
     while release == nil
