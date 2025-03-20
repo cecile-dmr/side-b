@@ -24,6 +24,10 @@
       <%= link_to cl_image_tag(my_vinyle.photo.key, class: "match-bubble"), profile_path(other_vinyle.user_id) %>
     </div>
   </div>
+  <% other_user = current_user == @match.vinyle1.user ? @match.vinyle1.user : @match.vinyle2.user %>
+  <div class="container mt-3">
+    <p class="text-center opacity-50">Échange <span class="fw-bold"><%= my_vinyle.title %></span> contre <span class="fw-bold"><%= other_vinyle.title %></span> avec <span class="fw-bold"><%= other_user.nickname %></span></p>
+  </div>
 
   <div class="container chat">
 
