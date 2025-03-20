@@ -22,8 +22,10 @@
 </div>
 
 <div class="button-container d-flex justify-content-center gap-4">
-  <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
-  <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+  <% if @vinyle.user == current_user %>
+    <%= link_to "Supprimer", vinyle_path(@vinyle), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce vinyle ?" }, class: "btn btn-lightred" %>
+    <%= link_to "Modifier", edit_vinyle_path(@vinyle), class: "btn btn-lavandia" %>
+  <% end %>
 </div>
 
 </div>

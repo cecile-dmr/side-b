@@ -1,5 +1,6 @@
 class VinylesController < ApplicationController
   before_action :set_vinyle, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
 
   def new
@@ -47,4 +48,11 @@ class VinylesController < ApplicationController
   def vinyle_params
     params.require(:vinyle).permit(:title, :artist, :year, :description, :quality, :available, :photo)
   end
+
+  def authorize_user!
+    unless @vinyle.user == current_user
+      redirect_to root_path, alert: "Tu n'as pas l'autorisation d'effectuer cette action."
+    end
+  end
+  
 end
