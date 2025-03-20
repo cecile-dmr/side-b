@@ -13,6 +13,7 @@ class Vinyle < ApplicationRecord
   validates :title, presence: { message: "Ne peut être vide"}
   validates :artist, presence: { message: "Ne peut être vide"}
   validates :year, presence: { message: "Ne peut être vide"}
+  validates :photo, presence: { message: "Ne peut être vide"}
   # TODO : Available
 
   scope :not_liked_or_disliked_by, ->(user) {
