@@ -6,7 +6,8 @@ class UserLike < ApplicationRecord
 
   def verify_match
     vinyle.user.user_likes.each do |like|
-      next unless user == like.vinyle.user || Match.pair(vinyle, like.vinyle)
+      next unless user == like.vinyle.user
+      next if Match.pair(vinyle, like.vinyle).any?
 
       match = Match.create!(vinyle1: vinyle, vinyle2: like.vinyle)
       broadcast_match(user, match)
