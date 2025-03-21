@@ -13,7 +13,7 @@ class PagesController < ApplicationController
           @vinyles = Vinyle.not_liked_or_disliked_by(current_user).shuffle
           render json: {
             search_radius: current_user.search_radius,
-            cards: render_to_string(partial: "shared/card_vinyle", collection: @vinyles, as: :vinyles,
+            cards: render_to_string(partial: "shared/card_vinyle", vinyles: @vinyles,
                                     formats: [:html]),
             show_modal: true # la modal devient true
           }, status: :ok

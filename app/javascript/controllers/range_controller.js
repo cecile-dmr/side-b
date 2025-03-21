@@ -27,6 +27,8 @@ export default class extends Controller {
     }).then(response => response.json())
       .then(data => {
         container_cards.innerHTML = `${data.cards}`
+        console.log(data.cards);
+        
         custom_swiper.connect()
       })
   }

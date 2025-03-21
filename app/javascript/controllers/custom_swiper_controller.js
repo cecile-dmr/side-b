@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import Hammer from "hammerjs";
 // Connects to data-controller="custom-swiper"
 export default class extends Controller {
-  static targets = [ "flipper", "button" ]
+  static targets = [ "button" ]
 
   connect() {
     const csrf_token = document.querySelector('meta[name="csrf-token"]').content
@@ -31,7 +31,6 @@ export default class extends Controller {
         },
         body: JSON.stringify(user_data)
       })
-      console.log(user_data)
     }
 
     // const modal = document.getElementById("matchModal")
@@ -42,12 +41,11 @@ export default class extends Controller {
 
     var tinderContainer = document.querySelector('.tinder');
     var allCards = document.querySelectorAll('.tinder--card');
-    const cards = this.flipperTargets
+    var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
     var nope = document.getElementById('nope');
     var love = document.getElementById('love');
 
     function initCards(card) {
-      var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
 
       newCards.forEach(function (card, index) {
         card.style.zIndex = allCards.length - index;
@@ -60,7 +58,7 @@ export default class extends Controller {
 
     initCards();
 
-    cards.forEach(function (el) {
+    allCards.forEach(function (el) {
       var hammertime = new Hammer(el);
 
       hammertime.on('pan', function (event) {
@@ -80,6 +78,7 @@ export default class extends Controller {
 
         event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
       });
+
 
       hammertime.on('panend', function (event) {
         el.classList.remove('moving');
@@ -115,7 +114,6 @@ export default class extends Controller {
             dislike(user_data);
           }
 
-          initCards();
 
           // hammertime.on("panleft", function(e) {
           //   const user_data = {
@@ -134,7 +132,6 @@ export default class extends Controller {
           // })
         }
       });
-
     });
 
     function createButtonListener(love) {
