@@ -23,6 +23,11 @@ class MatchesController < ApplicationController
     @message = Message.new
   end
 
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+  end
+
   private
 
   def match_params

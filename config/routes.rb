@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   patch 'update_radius', to: 'pages#update_radius'
 # ---
   resources :users, only: [:show]
-
+  resources :matches, only: [:destroy]
   resources :vinyles, except: [:index] do
     resources :matches, only: [:create]
   end
-  resources :matches, only: :show do
+  resources :matches, only: [:show] do
     resources :messages, only: :create
   end
 

@@ -6,9 +6,10 @@
 
       <%= link_to image_tag("back.png", width: "40px", height: "40px"), matches_path, class: "start-0 ms-3 z-3" %>
       <%# Bouton exchange validate %>
-      <button type="button" class="me-3 btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
+      <%= button_to "Valider l'échange", match_path(@match), class:"me-3 btn-lavandia w-100", data: {bs_toggle:"modal", bs_target:"#validateModal"}, method: :delete, confirm: "te", turbo: false  %>
+      <%# <button type="button" class="me-3 btn-lavandia" data-bs-toggle="modal" data-bs-target="#validateModal">
         Valider l'échange
-      </button>
+      </button> %>
       <%# Bouton exchange validate %>
     </div>
   </div>
@@ -18,10 +19,10 @@
 
   <div class="vinyles-container">
     <div class="vinyle vinyle-left">
-      <%= link_to cl_image_tag(other_vinyle.photo.key, class: "match-bubble"), profile_path(my_vinyle.user_id) %>
+      <%= link_to cl_image_tag(my_vinyle.photo.key, class: "match-bubble"), profile_path(my_vinyle.user_id) %>
     </div>
     <div class="vinyle vinyle-right">
-      <%= link_to cl_image_tag(my_vinyle.photo.key, class: "match-bubble"), profile_path(other_vinyle.user_id) %>
+      <%= link_to cl_image_tag(other_vinyle.photo.key, class: "match-bubble"), profile_path(other_vinyle.user_id) %>
     </div>
   </div>
   <% other_user = current_user == @match.vinyle1.user ? @match.vinyle2.user : @match.vinyle1.user %>
@@ -63,7 +64,7 @@
 <div id="validateModal" class="modal fade" tabindex="-1" aria-labelledby="matchModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content text-center p-4" style="border-radius: 20px; background-color: #FFF2F3;">
-      <a href="<%= root_path %>" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></a>
+      <a href="<%= profile_path(current_user) %>" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></a>
         <h1 style="font-size: 24px;">Side.B</h1>
         <h1 style="font-size: 30px;" class="mb-2">L'échange est validé !</h1>
         <p>Ajoute un autre vinyle ou continue d'échanger avec d'autres passionnés !</p>

@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to profile_path(current_user), class: "position-absolute start-0 ms-3 z-index-absolute" do %>
+  <%= link_to profile_path(@vinyle.user), class: "position-absolute start-0 ms-3 z-index-absolute" do %>
    <%= image_tag("back.png", width: "40px", height: "40px") %>
   <% end %>
 

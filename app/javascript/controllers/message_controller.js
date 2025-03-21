@@ -14,4 +14,10 @@ export default class extends Controller {
     }
     this.element.scrollIntoView({ behavior: 'smooth' });
   }
+
+  redirect() {
+    setTimeout(() => {
+      window.location.href = `matches/${this.element.dataset.id}`
+    }, 200);
+  }
 }
